@@ -1,0 +1,25 @@
+/* .main-container {
+  height: 100%;
+  width: 100%;
+} */
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav-container {
+  background-color: #234234;
+}
+
+.sidenav {
+  width: 20%;
+}
+
+.sidenav-content {
+  min-height: 689px;
+}
+
+.sidenav-list {
+  text-align: center;
+  align-items: center;
+}
