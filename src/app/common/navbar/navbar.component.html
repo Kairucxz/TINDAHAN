@@ -29,17 +29,18 @@
         </mat-nav-list>
     </mat-drawer>
 <mat-drawer-content>
-<mat-toolbar color="primary">
-<button mat-icon-button class="example-icon" (click)="drawer.toggle()">
-<mat-icon>menu</mat-icon>
-</button>
-<span>{{ selected }}</span>
-<span class="spacer"></span>
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>{{ selected }}</span>
+        <span class="spacer"></span>
 
-<span>{{ currentDate | date: 'EEEE, MMMM d, yyyy h:mm a' }}</span>
-</mat-toolbar>
-<div class="sidenav-content">
-<router-outlet></router-outlet>
-</div>
-</mat-drawer-content>
+        <span>{{ currentDate | date: 'EEEE, MMMM d, yyyy h:mm a' }}</span>
+    </mat-toolbar>
+    
+    <div class="sidenav-content">
+        <router-outlet></router-outlet>
+    </div>
+    </mat-drawer-content>
 </mat-drawer-container>
