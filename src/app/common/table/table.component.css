@@ -1,0 +1,48 @@
+table {
+  width: 100%;
+}
+
+.header-cell {
+  background-color: rgba(70, 130, 180, 1);
+  border-right: 3px solid #ccc;
+  padding: 8px;
+  text-align: center; 
+}
+.data-cell {
+    border-right: 1px solid #ccc;
+    padding: 8px;
+    text-align: center; /* Center-align the data cells */
+  }
+
+.header-cell:last-child,
+.data-cell:last-child {
+  border-right: none;
+}
+
+.data-cell button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .data-cell button:hover {
+    background-color: rgba(8, 180, 214, 0.1);
+  }
+  
+  
+  .data-cell button mat-icon {
+    color: inherit;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .slide-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
