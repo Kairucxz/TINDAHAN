@@ -7,19 +7,23 @@
   flex: 1 1 auto;
 }
 
+.logo {
+  margin: 12px;
+  text-align: center;
+}
+
 .sidenav-container {
   background-color: #234234;
 }
 
 .sidenav {
-  width: 20%;
+  width: 15%;
 }
 
 .sidenav-content {
   min-height: 689px;
 }
 
-.sidenav-list {
-  text-align: center;
-  align-items: center;
+.mat-list-item.active {
+  color: pink;
 }
