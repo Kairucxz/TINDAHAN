@@ -1,0 +1,39 @@
+<mat-drawer-container class="sidenav-container">
+    <mat-drawer #drawer mode="side" class="sidenav" opened="true">
+        <mat-nav-list>
+            <mat-list-item routerLink="">
+                    <mat-icon matListItemIcon>dashboard</mat-icon>
+                    <span matListItemTitle>Dashboard</span>
+            </mat-list-item>
+            <mat-list-item>
+                    <mat-icon>library_books</mat-icon> Inventory
+            </mat-list-item>
+            <mat-list-item>
+                    <mat-icon>local_grocery_store</mat-icon> Point of Sale
+            </mat-list-item>
+            <mat-list-item>
+                    <mat-icon>people</mat-icon> User Management
+            </mat-list-item>
+            <mat-list-item>
+                    <mat-icon>person</mat-icon> Profile
+            </mat-list-item>
+            <mat-list-item>
+                    <mat-icon>exit_to_app</mat-icon> Logout
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+<mat-drawer-content>
+<mat-toolbar color="primary">
+<button mat-icon-button class="example-icon" (click)="drawer.toggle()">
+<mat-icon>menu</mat-icon>
+</button>
+<span>Ang TINDAHAN</span>
+<span class="spacer"></span>
+
+<span>{{ currentDate | date: 'EEEE, MMMM d, yyyy h:mm a' }}</span>
+</mat-toolbar>
+<div class="sidenav-content">
+<router-outlet></router-outlet>
+</div>
+</mat-drawer-content>
+</mat-drawer-container>
