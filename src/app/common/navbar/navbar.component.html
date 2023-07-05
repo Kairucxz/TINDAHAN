@@ -3,44 +3,56 @@
         <h1 class="logo"><mat-icon>business_center</mat-icon>     TINDAHAN</h1>
         <mat-nav-list>
             <mat-list-item [routerLink]="['/dashboard']" (click)="selected='Dashboard'" [routerLinkActive]="['active']">
-                    <mat-icon [class.active]="selected" matListItemIcon>dashboard</mat-icon>
+                    <mat-icon matListItemIcon>dashboard</mat-icon>
                     <span matListItemTitle>Dashboard</span>
             </mat-list-item>
             <mat-list-item [routerLink]="['']" (click)="selected='Inventory'" [routerLinkActive]="['active']">
-                    <mat-icon matListItemIcon>library_books</mat-icon> 
+                    <mat-icon matListItemIcon>inventory</mat-icon> 
                     <span matListItemTitle>Inventory</span>
             </mat-list-item>
             <mat-list-item [routerLink]="['']" (click)="selected='Point of Sale'" [routerLinkActive]="['active']">
-                    <mat-icon matListItemIcon>local_grocery_store</mat-icon>
+                    <mat-icon matListItemIcon>point_of_sale</mat-icon>
                     <span matListItemTitle>Point of Sale</span>
             </mat-list-item>
-            <mat-list-item [routerLink]="['']" (click)="selected='User Management'" [routerLinkActive]="['active']">
-                    <mat-icon matListItemIcon>people</mat-icon> 
-                    <span matListItemTitle>User Management</span>
-            </mat-list-item>
+            <mat-expansion-panel [class.mat-elevation-z0]="true" mat-list-item>
+                
+                <mat-expansion-panel-header matListItemTitle>
+                    <mat-icon style="margin: 0 15px 0 0;">people</mat-icon> User Management
+                </mat-expansion-panel-header>
+                <mat-nav-list class="sub-menu">
+                    <mat-list-item  [routerLink]="['']" (click)="selected='Customer Management'" [routerLinkActive]="['active']" class="sub-menu">
+                            <mat-icon matListItemIcon class="sub-menu-icon">person</mat-icon>
+                            <span matListItemTitle class="sub-menu-label">Customer</span>
+                    </mat-list-item>
+                    <mat-list-item  [routerLink]="['']" (click)="selected='Employee Management'" [routerLinkActive]="['active']" class="sub-menu">
+                        <mat-icon matListItemIcon class="sub-menu-icon">badge</mat-icon>
+                        <span matListItemTitle class="sub-menu-label">Employee</span>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-expansion-panel>
             <mat-list-item [routerLink]="['']" (click)="selected='Profile'" [routerLinkActive]="['active']">
                     <mat-icon matListItemIcon>person</mat-icon>
                     <span matListItemTitle>Profile</span>
             </mat-list-item>
             <mat-list-item>
-                    <mat-icon matListItemIcon>exit_to_app</mat-icon>
+                    <mat-icon matListItemIcon>logout</mat-icon>
                     <span matListItemTitle>Logout</span>
             </mat-list-item>
         </mat-nav-list>
     </mat-drawer>
 <mat-drawer-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar>
         <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
         <span>{{ selected }}</span>
         <span class="spacer"></span>
 
-      <span>{{ currentDate | date : "EEEE, MMMM d, yyyy h:mm a" }}</span>
+        <span>{{ currentDate | date: 'EEEE, MMMM d, yyyy h:mm a' }}</span>
     </mat-toolbar>
-
+    
     <div class="sidenav-content">
-      <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
     </div>
-  </mat-drawer-content>
+    </mat-drawer-content>
 </mat-drawer-container>
