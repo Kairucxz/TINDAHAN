@@ -1,18 +1,145 @@
-.invoiceCard{
-    width: 417px;
-    height: 290px;
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .invoiceCard,
+  .totalCard,
+  .barcodeCard,
+  .posTable {
     flex-shrink: 0;
     border: 2px solid #4682B4;
     background: #F0F8FF;
-    margin-left: 3px;
-    margin-top: 3px;
-}
-
-.cardText{
-    color: black;
-    font-size: 18px;
-    font-family: Inria Serif;
-    font-weight: 60;
-    word-wrap: break-word;
+    margin-left: 20px;
+    margin-top: 15px;
+    border-radius: 4px;
+  }
+  .barcodeCard{
+    margin-left: 20px;
+    margin-top: 10px;
+    border-radius: 4px;
+  }
+  
+  .invoiceCard {
+    width: 480px;
+    height: 220px;
+    display: flex;
     
+  }
+  
+  .totalCard {
+    width: 470px;
+    height: 168px;
+    display: flex;
+  }
+  
+  .barcodeCard {
+    width: 470px;
+    height: 39px;
+    display: flex;
+  }
+  
+  .buttonCard {
+    width: 220px;
+    height: 220px;
+    display: flex;
+  }
+
+  .cardItem, .cardTotalItem, .barcodeItem, .barcodeField  {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .cardText , .cardField, .cardTexField,  .barcodeText{
+    color: black;
+    font-size: 15px;
+    font-family: Inria Serif;
+    word-wrap: break-word;
+    margin-right: 10px;
+    margin-bottom: 11px;
+    margin-top: 11px;
+    
+  }
+  .barcodeText{
+    margin-top: 5px;
+  }
+  .cardTextTotal{
+    margin-bottom: 20px;
+    margin-top: 15px;
+    font-size: 17px;
+    font-family: Inria Serif;
+    word-wrap: break-word;
+  }
+  .cardField  {
+    margin-left: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    height: 20px;
+    margin-top: 5px;
+
+  }
+
+  .cardItemField, .cardTotalField {
+    margin-bottom: 5px;
+    margin-top: 2px;
+  }
+   .cardFieldRadio{
+    margin-left: 10px;
+   }
+.cardTexField{
+    padding: 5px;
+    border: 3px solid rgba(70, 130, 180, 0.33);
+    border-radius: 4px;
+    width: 290px;
+    height: 30px;
+    margin-top: 5px;
 }
+  .cardInputField {
+    padding: 4px;
+    border: 3px solid rgba(70, 130, 180, 0.33);
+    border-radius: 4px;
+    width: 93%;
+    height: 30px;
+    margin-top: 1px;
+    margin-bottom: 5px;
+
+  }
+  .barcodeInputField{
+    padding: 4px;
+    border: 3px solid rgba(70, 130, 180, 0.33);
+    border-radius: 4px;
+    width: 350px;
+    height: 30px;
+    margin-top: 1px;
+    margin-bottom: 5px;
+
+  }
+  .buttonCard{
+   
+    flex-direction: column;
+    flex-shrink: 0;
+    border: 2px solid #4682B4;
+    background: #F0F8FF;
+    margin-left: 20px;
+    margin-top: 15px;
+    border-radius: 4px;
+    
+
+  }
+  .buttonItem, .mat-raised-button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    width: 175px;
+    height: 50px;
+    background-color: #87CEEB !important;
+    font-family: Inria Serif;
+    font-weight: bold;
+  }
+  
+  
