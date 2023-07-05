@@ -6,11 +6,11 @@
                     <mat-icon matListItemIcon>dashboard</mat-icon>
                     <span matListItemTitle>Dashboard</span>
             </mat-list-item>
-            <mat-list-item [routerLink]="['']" (click)="selected='Inventory'" [routerLinkActive]="['active']">
+            <mat-list-item [routerLink]="['/inventory']" (click)="selected='Inventory'" [routerLinkActive]="['active']">
                     <mat-icon matListItemIcon>inventory</mat-icon> 
                     <span matListItemTitle>Inventory</span>
             </mat-list-item>
-            <mat-list-item [routerLink]="['']" (click)="selected='Point of Sale'" [routerLinkActive]="['active']">
+            <mat-list-item [routerLink]="['/pos']" (click)="selected='Point of Sale'" [routerLinkActive]="['active']">
                     <mat-icon matListItemIcon>point_of_sale</mat-icon>
                     <span matListItemTitle>Point of Sale</span>
             </mat-list-item>
@@ -20,17 +20,17 @@
                     <mat-icon style="margin: 0 15px 0 0;">people</mat-icon> User Management
                 </mat-expansion-panel-header>
                 <mat-nav-list class="sub-menu">
-                    <mat-list-item  [routerLink]="['']" (click)="selected='Customer Management'" [routerLinkActive]="['active']" class="sub-menu">
+                    <mat-list-item  [routerLink]="['/customer']" (click)="selected='Customer Management'" [routerLinkActive]="['active']" class="sub-menu">
                             <mat-icon matListItemIcon class="sub-menu-icon">person</mat-icon>
                             <span matListItemTitle class="sub-menu-label">Customer</span>
                     </mat-list-item>
-                    <mat-list-item  [routerLink]="['']" (click)="selected='Employee Management'" [routerLinkActive]="['active']" class="sub-menu">
+                    <mat-list-item  [routerLink]="['/employee']" (click)="selected='Employee Management'" [routerLinkActive]="['active']" class="sub-menu">
                         <mat-icon matListItemIcon class="sub-menu-icon">badge</mat-icon>
                         <span matListItemTitle class="sub-menu-label">Employee</span>
                     </mat-list-item>
                 </mat-nav-list>
             </mat-expansion-panel>
-            <mat-list-item [routerLink]="['']" (click)="selected='Profile'" [routerLinkActive]="['active']">
+            <mat-list-item [routerLink]="['/profile']" (click)="selected='Profile'" [routerLinkActive]="['active']">
                     <mat-icon matListItemIcon>person</mat-icon>
                     <span matListItemTitle>Profile</span>
             </mat-list-item>
