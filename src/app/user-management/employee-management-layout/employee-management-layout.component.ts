@@ -1,17 +1,15 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatPaginator, MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDialog } from '@angular/material/dialog';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
-  standalone: true,
-  imports: [MatTableModule, MatPaginatorModule, MatIconModule, MatSlideToggleModule],
+  selector: 'app-employee-management-layout',
+  templateUrl: './employee-management-layout.component.html',
+  styleUrls: ['./employee-management-layout.component.css']
 })
-export class TableComponent implements AfterViewInit  {
+export class EmployeeManagementLayoutComponent implements AfterViewInit  {
   displayedColumns: string[] = ['id', 'employeeName', 'emailAddress', 'homeAddress', 'action'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
@@ -21,10 +19,13 @@ export class TableComponent implements AfterViewInit  {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-  viewItem(element: PeriodicElement) {
-    console.log('View item:', element);
-  }
 
+  // constructor(private _dialog: MatDialog){
+
+  //   viewEmployeeForm(){
+  //     this._dialog.open(EmployeeRegistrationComponent);
+  //   }
+  // }
   deleteItem(element: PeriodicElement) {
     // Handle the delete action
   }

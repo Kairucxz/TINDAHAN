@@ -1,0 +1,18 @@
+.invoiceCard{
+    width: 417px;
+    height: 290px;
+    flex-shrink: 0;
+    border: 2px solid #4682B4;
+    background: #F0F8FF;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
+.cardText{
+    color: black;
+    font-size: 18px;
+    font-family: Inria Serif;
+    font-weight: 60;
+    word-wrap: break-word;
+    
+}
