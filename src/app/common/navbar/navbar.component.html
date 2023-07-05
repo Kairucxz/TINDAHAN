@@ -1,60 +1,40 @@
 <mat-drawer-container class="sidenav-container">
-  <mat-drawer #drawer mode="side" class="sidenav" opened="true">
-    <h1 class="logo"><mat-icon>business_center</mat-icon> TINDAHAN</h1>
-    <mat-nav-list>
-      <mat-list-item
-        [routerLink]="['/dashboard']"
-        (click)="selected = 'Dashboard'"
-        [routerLinkActive]="['active']"
-      >
-        <mat-icon [class.active]="selected" matListItemIcon>dashboard</mat-icon>
-        <span matListItemTitle>Dashboard</span>
-      </mat-list-item>
-      <mat-list-item
-        [routerLink]="['/inventory']"
-        (click)="selected = 'Inventory'"
-        [routerLinkActive]="['active']"
-      >
-        <mat-icon matListItemIcon>library_books</mat-icon>
-        <span matListItemTitle>Inventory</span>
-      </mat-list-item>
-      <mat-list-item
-        [routerLink]="['/pos']"
-        (click)="selected = 'Point of Sale'"
-        [routerLinkActive]="['active']"
-      >
-        <mat-icon matListItemIcon>local_grocery_store</mat-icon>
-        <span matListItemTitle>Point of Sale</span>
-      </mat-list-item>
-      <mat-list-item
-        [routerLink]="['/userManagement']"
-        (click)="selected = 'User Management'"
-        [routerLinkActive]="['active']"
-      >
-        <mat-icon matListItemIcon>people</mat-icon>
-        <span matListItemTitle>User Management</span>
-      </mat-list-item>
-      <mat-list-item
-        [routerLink]="['/profile']"
-        (click)="selected = 'Profile'"
-        [routerLinkActive]="['active']"
-      >
-        <mat-icon matListItemIcon>person</mat-icon>
-        <span matListItemTitle>Profile</span>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon matListItemIcon>exit_to_app</mat-icon>
-        <span matListItemTitle>Logout</span>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-drawer>
-  <mat-drawer-content>
+    <mat-drawer #drawer mode="side" class="sidenav" opened="true">
+        <h1 class="logo"><mat-icon>business_center</mat-icon>     TINDAHAN</h1>
+        <mat-nav-list>
+            <mat-list-item [routerLink]="['/dashboard']" (click)="selected='Dashboard'" [routerLinkActive]="['active']">
+                    <mat-icon [class.active]="selected" matListItemIcon>dashboard</mat-icon>
+                    <span matListItemTitle>Dashboard</span>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['']" (click)="selected='Inventory'" [routerLinkActive]="['active']">
+                    <mat-icon matListItemIcon>library_books</mat-icon> 
+                    <span matListItemTitle>Inventory</span>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['']" (click)="selected='Point of Sale'" [routerLinkActive]="['active']">
+                    <mat-icon matListItemIcon>local_grocery_store</mat-icon>
+                    <span matListItemTitle>Point of Sale</span>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['']" (click)="selected='User Management'" [routerLinkActive]="['active']">
+                    <mat-icon matListItemIcon>people</mat-icon> 
+                    <span matListItemTitle>User Management</span>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['']" (click)="selected='Profile'" [routerLinkActive]="['active']">
+                    <mat-icon matListItemIcon>person</mat-icon>
+                    <span matListItemTitle>Profile</span>
+            </mat-list-item>
+            <mat-list-item>
+                    <mat-icon matListItemIcon>exit_to_app</mat-icon>
+                    <span matListItemTitle>Logout</span>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+<mat-drawer-content>
     <mat-toolbar color="primary">
-      <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>{{ selected }}</span>
-      <span class="spacer"></span>
+        <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>{{ selected }}</span>
+        <span class="spacer"></span>
 
       <span>{{ currentDate | date : "EEEE, MMMM d, yyyy h:mm a" }}</span>
     </mat-toolbar>

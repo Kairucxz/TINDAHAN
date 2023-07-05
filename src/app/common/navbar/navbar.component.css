@@ -8,7 +8,7 @@
 }
 
 .logo {
-  margin: 12px;
+  margin: 20px 10px 10px !important;
   text-align: center;
 }
 
@@ -20,25 +20,42 @@
 .sidenav {
   width: 15%;
   background: #87CEEB;
+}
 
+.mat-expansion-panel {
+  background: #87CEEB;
+  width: 100%;
 }
 
 .sidenav-content {
   min-height: 689px;
 }
 
-.mat-list-item.active {
-  color: pink;
-}
-
-.mat-list-item.selected {
-  background: #4682B4;
-
-}
-
 .mat-toolbar {
-  border-radius: 20px;
   padding-left: 0;
   background: #4682B4;
+  border-radius: 15px;
+}
 
+.mat-expansion-panel-body{
+  padding: 0px !important;
+}
+
+.mat-expansion-panel-header{
+  padding: 0 15px !important;
+  height: 65px;
+}
+
+.sub-menu {
+  padding: 0 !important;
+}
+
+.sub-menu-label {
+  padding-left: 5px;
+}
+
+.sub-menu-icon {
+  padding-left: 40px;
+  width: 60px;
+  margin-right: 10px !important; 
 }
