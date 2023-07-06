@@ -4,7 +4,9 @@ import { DashboardLayoutComponent } from './dashboard/dashboard-layout/dashboard
 import { InventoryLayoutComponent } from './inventory/inventory-layout/inventory-layout.component';
 import { PointOfSaleLayoutComponent } from './point-of-sale/point-of-sale-layout/point-of-sale-layout.component';
 import { ProfileLayoutComponent } from './profile/profile-layout/profile-layout.component';
-import { UserManagementModule } from './user-management/user-management.module';
+import { CustomerLayoutComponent } from './user-management/customer/customer-layout/customer-layout.component';
+import { EmployeeLayoutComponent } from './user-management/employee/employee-layout/employee-layout.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -38,10 +40,17 @@ const routes: Routes = [{
       }
     },
     {
-      path: 'userManagement',
-      component: UserManagementModule,
+      path: 'customer',
+      component: CustomerLayoutComponent,
       data: {
-        title: 'userManagement'
+        title: 'customer'
+      }
+    },
+    {
+      path: 'employee',
+      component: EmployeeLayoutComponent,
+      data: {
+        title: 'employee'
       }
     },
 
