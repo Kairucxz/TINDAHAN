@@ -18,4 +18,9 @@ export class NavbarComponent implements OnInit{
 
     this.selected = 'Dashboard'
   }
+
+  saveInvoice(): void {
+ 
+    console.log('Invoice saved!');
+  }
 }

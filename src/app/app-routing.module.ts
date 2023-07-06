@@ -24,13 +24,6 @@ const routes: Routes = [{
       }
     },
     {
-      path: 'inventory',
-      component: InventoryLayoutComponent,
-      data: {
-        title: 'inventory'
-      }
-    },
-    {
       path: 'pos',
       component: PointOfSaleLayoutComponent,
       data: {

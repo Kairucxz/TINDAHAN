@@ -7,7 +7,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
 import { PosTableComponent } from './pos-table/pos-table.component';
 import { FormsModule } from '@angular/forms';
-import { InvoiceComponent } from './invoice/invoice.component';
+import { InvoiceModalComponent } from './invoice-modal/invoice.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -16,7 +18,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
   declarations: [
     PointOfSaleLayoutComponent,
     PosTableComponent,
-    InvoiceComponent
+    InvoiceModalComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,9 @@ import { InvoiceComponent } from './invoice/invoice.component';
     MatButtonModule,
     MatTableModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
+   
   ]
 })
 export class PointOfSaleModule { }

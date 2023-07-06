@@ -43,7 +43,9 @@
     </div>
   </div>
   <div class="buttonCard">
-    <button mat-raised-button class="buttonItem">Checkout</button>
+    <button mat-raised-button class="buttonItem" (click)="openInvoiceModal()">
+      Checkout
+    </button>
     <button mat-raised-button class="buttonItem">Existing Customer</button>
     <button mat-raised-button class="buttonItem">New Customer</button>
   </div>
@@ -51,3 +53,6 @@
 <div class="posTable">
   <app-pos-table></app-pos-table>
 </div>
+<ng-template #invoiceModal>
+  <app-invoice></app-invoice>
+</ng-template>
