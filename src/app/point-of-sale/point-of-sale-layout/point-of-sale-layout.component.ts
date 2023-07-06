@@ -1,9 +1,5 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { InvoiceModalComponent } from '../invoice-modal/invoice.component';
-
-
-
 
 
 @Component({
@@ -14,11 +10,22 @@ import { InvoiceModalComponent } from '../invoice-modal/invoice.component';
 })
 export class PointOfSaleLayoutComponent {
   @ViewChild('invoiceModal') invoiceModal!: TemplateRef<any>;
+  @ViewChild('existingCustomerModal') existingCustomerModal!: TemplateRef<any>;
+
   constructor(private dialog: MatDialog) {}
 
   openInvoiceModal(): void {
     this.dialog.open(this.invoiceModal, {
+      
       disableClose: true, 
+    });
+  
+  }
+
+  openExistingCustomerModal(): void {
+    this.dialog.open(this.existingCustomerModal, {
+      
+      disableClose: false, 
     });
   
   }

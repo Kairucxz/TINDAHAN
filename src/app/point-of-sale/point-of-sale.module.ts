@@ -9,6 +9,9 @@ import { PosTableComponent } from './pos-table/pos-table.component';
 import { FormsModule } from '@angular/forms';
 import { InvoiceModalComponent } from './invoice-modal/invoice.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ExistingCustomerComponent } from './existing-customer/existing-customer.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -18,7 +21,8 @@ import { MatDialogModule } from '@angular/material/dialog';
   declarations: [
     PointOfSaleLayoutComponent,
     PosTableComponent,
-    InvoiceModalComponent
+    InvoiceModalComponent,
+    ExistingCustomerComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +31,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTableModule,
     MatRadioModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatFormFieldModule
    
   ]
 })

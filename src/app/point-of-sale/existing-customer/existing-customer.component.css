@@ -1,0 +1,53 @@
+.customerContainer {
+    width: 500px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .titleHeader {
+    background-color: #4682b4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    width: 460px;
+  }
+  
+  .titleText {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Inria Serif";
+    color: black;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+  }
+  
+  .content p {
+    font-size: 17px;
+    font-family: "Inria Serif";
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  .selectContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  mat-option, mat-select, mat-label {
+    font-size: 17px;
+    font-family: "Inria Serif";
+
+  }
+  

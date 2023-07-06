@@ -46,7 +46,13 @@
     <button mat-raised-button class="buttonItem" (click)="openInvoiceModal()">
       Checkout
     </button>
-    <button mat-raised-button class="buttonItem">Existing Customer</button>
+    <button
+      mat-raised-button
+      class="buttonItem"
+      (click)="openExistingCustomerModal()"
+    >
+      Existing Customer
+    </button>
     <button mat-raised-button class="buttonItem">New Customer</button>
   </div>
 </div>
@@ -55,4 +61,8 @@
 </div>
 <ng-template #invoiceModal>
   <app-invoice></app-invoice>
+</ng-template>
+
+<ng-template #existingCustomerModal>
+  <app-existing-customer></app-existing-customer>
 </ng-template>
