@@ -7,6 +7,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
 import { PosTableComponent } from './pos-table/pos-table.component';
 import { FormsModule } from '@angular/forms';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 
 
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     PointOfSaleLayoutComponent,
-    PosTableComponent
+    PosTableComponent,
+    InvoiceComponent
   ],
   imports: [
     CommonModule,
