@@ -34,7 +34,7 @@
 .mat-toolbar {
   padding-left: 0;
   background: #4682B4;
-  border-radius: 15px;
+  border-radius: 1px;
 }
 
 .mat-expansion-panel-body{

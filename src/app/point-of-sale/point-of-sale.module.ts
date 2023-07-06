@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
 import { PosTableComponent } from './pos-table/pos-table.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +21,8 @@ import { PosTableComponent } from './pos-table/pos-table.component';
     MatCardModule,
     MatButtonModule,
     MatTableModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule
   ]
 })
 export class PointOfSaleModule { }

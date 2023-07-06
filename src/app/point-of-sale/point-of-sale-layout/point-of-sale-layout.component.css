@@ -1,6 +1,9 @@
 .cardContainer {
     display: flex;
     flex-wrap: wrap;
+    width: fit-content; /* Adjust the width based on content size */
+  margin: 0 auto; /* Center the container horizontally */
+    
   }
   
   .invoiceCard,
@@ -53,7 +56,7 @@
     margin-top: 5px;
   }
 
-  .cardText , .cardField, .cardTexField,  .barcodeText{
+  .cardText , .cardField, .barcodeText{
     color: black;
     font-size: 15px;
     font-family: Inria Serif;
@@ -62,6 +65,19 @@
     margin-bottom: 11px;
     margin-top: 11px;
     
+  }
+  .grandTotal{
+    color: black;
+    font-size: 20px;
+    font-family: Inria Serif;
+    word-wrap: break-word;
+    margin-right: 10px;
+    margin-bottom: 11px;
+    margin-top: 11px;
+    padding: 5px;
+    border: 3px solid rgba(70, 130, 180, 0.33);
+    border-radius: 4px;
+    font-weight: bold;
   }
   .barcodeText{
     margin-top: 5px;
@@ -91,7 +107,8 @@
    .cardFieldRadio{
     margin-left: 10px;
    }
-.cardTexField{
+
+.cardTexField {
     padding: 5px;
     border: 3px solid rgba(70, 130, 180, 0.33);
     border-radius: 4px;
