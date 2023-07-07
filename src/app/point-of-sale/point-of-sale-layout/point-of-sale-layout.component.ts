@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class PointOfSaleLayoutComponent {
   @ViewChild('invoiceModal') invoiceModal!: TemplateRef<any>;
   @ViewChild('existingCustomerModal') existingCustomerModal!: TemplateRef<any>;
+  @ViewChild('addCustomerModal') addCustomerModal!: TemplateRef<any>;
 
   constructor(private dialog: MatDialog) {}
 
@@ -24,6 +25,14 @@ export class PointOfSaleLayoutComponent {
 
   openExistingCustomerModal(): void {
     this.dialog.open(this.existingCustomerModal, {
+      
+      disableClose: false, 
+    });
+  
+  }
+
+  openCutomerRegistration(): void {
+    this.dialog.open(this.addCustomerModal, {
       
       disableClose: false, 
     });

@@ -2,10 +2,18 @@
   <div class="titleContainer">
     <div class="titleText">List of Customer</div>
     <div class="buttonContainer">
-      <button class="material-symbols-outlined">person_add</button>
+      <button
+        class="material-symbols-outlined"
+        (click)="openCutomerRegistration()"
+      >
+        person_add
+      </button>
     </div>
   </div>
   <div class="tableContainer">
     <app-customer-table></app-customer-table>
   </div>
 </div>
+<ng-template #addCustomerModal>
+  <app-customer-registration></app-customer-registration>
+</ng-template>

@@ -53,7 +53,13 @@
     >
       Existing Customer
     </button>
-    <button mat-raised-button class="buttonItem">New Customer</button>
+    <button
+      mat-raised-button
+      class="buttonItem"
+      (click)="openCutomerRegistration()"
+    >
+      New Customer
+    </button>
   </div>
 </div>
 <div class="posTable">
@@ -65,4 +71,8 @@
 
 <ng-template #existingCustomerModal>
   <app-existing-customer></app-existing-customer>
+</ng-template>
+
+<ng-template #addCustomerModal>
+  <app-customer-registration></app-customer-registration>
 </ng-template>
