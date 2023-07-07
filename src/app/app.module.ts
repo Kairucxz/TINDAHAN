@@ -11,11 +11,16 @@ import { CustomerModule } from './user-management/customer/customer.module';
 import { EmployeeModule } from './user-management/employee/employee.module';
 
 import { DashboardModule } from './dashboard/dashboard.module';
+import {AppMaterialModule} from "./app-material.module";
+import {LoginComponent} from "./login/login.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     NavbarComponent
   ],
   imports: [
@@ -25,11 +30,12 @@ import { DashboardModule } from './dashboard/dashboard.module';
     MaterialModule,
     PointOfSaleModule,
     CustomerModule,
-    EmployeeModule
-,
-    DashboardModule
-    
-  ],  
+    EmployeeModule,
+    DashboardModule,
+    AppMaterialModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

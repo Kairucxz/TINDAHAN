@@ -1,3 +1,4 @@
+import {LoginComponent} from "./login/login.component";
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './dashboard/dashboard-layout/dashboard-layout.component';
@@ -8,8 +9,11 @@ import { CustomerLayoutComponent } from './user-management/customer/customer-lay
 import { EmployeeLayoutComponent } from './user-management/employee/employee-layout/employee-layout.component';
 
 
-const routes: Routes = [{
-  path: '',
+const routes: Routes = [
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {
+  path: 'home',
   children: [
     {
       path: 'dashboard',
@@ -53,13 +57,13 @@ const routes: Routes = [{
         title: 'employee'
       }
     },
-
-  ]
-}
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
