@@ -10,14 +10,13 @@ import { PointOfSaleModule } from './point-of-sale/point-of-sale.module';
 import { CustomerModule } from './user-management/customer/customer.module';
 import { EmployeeModule } from './user-management/employee/employee.module';
 
+import { DashboardModule } from './dashboard/dashboard.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    
-    
-    
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +26,8 @@ import { EmployeeModule } from './user-management/employee/employee.module';
     PointOfSaleModule,
     CustomerModule,
     EmployeeModule
-
+,
+    DashboardModule
     
   ],  
   providers: [],

@@ -1,1 +1,30 @@
-<p>dashboard-layout works!</p>
+<mat-grid-list cols="4" rowHeight="300px" gutterSize="10px">
+    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
+      <ng-container *ngIf="!tile.showGraph">
+        <mat-card class="widget-card">
+          <mat-card-header>
+            <mat-card-title>{{ tile.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <h2>{{ tile.amount }}</h2>
+            <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+            <small>{{ tile.content }}</small>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngIf="tile.showGraph">
+        <mat-card class="widget-card">
+          <mat-card-header>
+            <mat-card-title>{{ tile.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <!-- Graph component goes here -->
+            <div class="graph">
+                <!-- <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height: '360px'}"></canvasjs-chart> -->
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </mat-grid-tile>
+  </mat-grid-list>
+  

@@ -1,0 +1,11 @@
+.mat-grid-list {
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.widget-card {
+    padding: 10px;
+    height: 280px;
+    width: 280px;
+    border-radius: 15px;
+  }
