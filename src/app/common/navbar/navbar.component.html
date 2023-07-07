@@ -72,8 +72,9 @@
       </button>
       <span>{{ selected }}</span>
       <span class="spacer"></span>
-
-      <span>{{ currentDate | date : "EEEE, MMMM d, yyyy h:mm a" }}</span>
+      <div class="date">
+        <span>{{ currentDate | date : "EEEE, MMMM d, yyyy h:mm a" }}</span>
+      </div>
     </mat-toolbar>
 
     <div class="sidenav-content">

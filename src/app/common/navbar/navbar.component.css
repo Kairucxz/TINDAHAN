@@ -18,12 +18,12 @@
 }
 
 .sidenav {
-  width: 15%;
-  background: #87CEEB;
+  width: 18%;
+  background: #4682B4;
 }
 
 .mat-expansion-panel {
-  background: #87CEEB;
+  background: #4682B4;
   width: 100%;
 }
 
@@ -32,9 +32,9 @@
 }
 
 .mat-toolbar {
-  padding-left: 0;
+  
   background: #4682B4;
-  border-radius: 1px;
+
 }
 
 .mat-expansion-panel-body{
@@ -58,4 +58,11 @@
   padding-left: 40px;
   width: 60px;
   margin-right: 10px !important; 
+}
+.date{
+  color:white;
+  font-weight: bold;
+  font-size: 22px;
+  font-family: 'Inria Serif', serif;
+  word-wrap: break-word;
 }
