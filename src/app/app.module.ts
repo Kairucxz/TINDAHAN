@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { MaterialModule } from './material-module';
 import { PointOfSaleModule } from './point-of-sale/point-of-sale.module';
+import { CustomerModule } from './user-management/customer/customer.module';
+import { EmployeeModule } from './user-management/employee/employee.module';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { PointOfSaleModule } from './point-of-sale/point-of-sale.module';
     BrowserAnimationsModule,
     MaterialModule,
     PointOfSaleModule,
+    CustomerModule,
+    EmployeeModule
 
     
   ],  

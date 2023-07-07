@@ -1,6 +1,6 @@
 .modal-container{
-    width: 650px;
-    height: 700px;
+    width: 600px;
+    height: 650px;
 }
 .modal-header{
     background-color: #4682B4;
@@ -54,17 +54,18 @@ hr {
 .modal-footer{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-left: 235px;
-    margin-right: 235px;
+    justify-content: center;
+    
 }
 
 .close-button {
     background-color: rgb(239, 144, 144);
     color: black;
+    margin: 30px;
   }
   
 .save-button {
     background-color: #87CEEB;
     color: black;
+    margin: 30px;
   }

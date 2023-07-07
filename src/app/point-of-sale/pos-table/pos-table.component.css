@@ -5,8 +5,33 @@
   
   table {
     width: 100%;
+    background-color: #F0F8FF;
   }
   .table-header {
     background-color: #4682B4 !important;
+    color: black;
+    font-size: 17px;
+    font-family: Inria Serif;
+    word-wrap: break-word;
   }
+  .table-cell-font {
+    font-size: 15px;
+    font-family: Inria Serif;
+   
+  }
+
+  .quantity-button {
+    font-family: Inria Serif;
+    border: 1px solid #4682B4;
+    background-color: #87CEEB;
+  }
+
+  .quantity-input {
+    font-family: Inria Serif;
+    border: 1px solid #4682B4;
+    padding: 2px;
+      
+  }
+    
   
+ 

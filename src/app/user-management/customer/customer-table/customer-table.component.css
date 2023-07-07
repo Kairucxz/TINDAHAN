@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+  }
+.table-header{
+  background-color: #4682B4 !important;
+    color: black;
+    font-size: 17px;
+    font-family: Inria Serif;
+    word-wrap: break-word;
+    
+}
+.table-cell-font {
+  font-size: 15px;
+  font-family: Inria Serif;
+ 
+}
+.table-cell-center {
+  text-align: center;
+}
+
+.material-symbols-outlined {
+  padding: 4px 6px;
+  margin: 1px;
+  background-color: #87CEEB;
+  color: black;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid #4682B4
+}
+
+.material-symbols-outlined:hover {
+  background-color: #4682B4; 
+}
+
+
