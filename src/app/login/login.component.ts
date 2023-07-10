@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {AuthenticationService} from "../service/authentication/authentication.service";
+import {ActivatedRoute, Router} from "@angular/router";
+
 // import * as http from "http";
 
 @Component({
@@ -13,18 +16,18 @@ export class LoginComponent {
   private formSubmitAttempt: boolean;
   apiURL = 'http://localhost:8080/api/v1/auth/authenticate/';
   headers = new Headers();
+
   constructor(
     private fb: FormBuilder,
-    // private authService: AuthService
-    private http: HttpClient
+    private authentication: AuthenticationService,
+    private http: HttpClient,
   ) {
     this.form = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
     this.headers.set('Content-Type', 'application/json');
-    this.headers.set('Authorization', 'Bearer ');
-    this.formSubmitAttempt=false;
+    this.formSubmitAttempt = false;
   }
 
   ngOnInit() {
@@ -45,10 +48,8 @@ export class LoginComponent {
     if (this.form.valid) {
       console.log(this.form.value);
       // this.authService.login(this.form.value);
-      this.http.post<{}>(this.apiURL, this.form.value, {headers:{'Authorization':'Bearer '}}).subscribe((response) => {
-        console.log('response received is ', response);
-      });
-      this.formSubmitAttempt = true;
+      this.authentication.authenticate(this.form.value);
     }
+      this.formSubmitAttempt = true;
   }
 }

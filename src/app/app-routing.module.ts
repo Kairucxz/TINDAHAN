@@ -7,55 +7,60 @@ import { PointOfSaleLayoutComponent } from './point-of-sale/point-of-sale-layout
 import { ProfileLayoutComponent } from './profile/profile-layout/profile-layout.component';
 import { CustomerLayoutComponent } from './user-management/customer/customer-layout/customer-layout.component';
 import { EmployeeLayoutComponent } from './user-management/employee/employee-layout/employee-layout.component';
+import {AuthGuardService} from "./service/authguard/auth-guard.service";
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {
-  path: 'home',
-  children: [
+  {path: '', children: [
     {
       path: 'dashboard',
       component: DashboardLayoutComponent,
       data: {
         title: 'dashboard'
-      }
+      },
+      canActivate: [AuthGuardService],
     },
     {
       path: 'inventory',
       component: InventoryLayoutComponent,
       data: {
         title: 'inventory'
-      }
+      },
+      canActivate: [AuthGuardService],
     },
     {
       path: 'pos',
       component: PointOfSaleLayoutComponent,
       data: {
         title: 'pos'
-      }
+      },
+      canActivate: [AuthGuardService],
     },
     {
       path: 'profile',
       component: ProfileLayoutComponent,
       data: {
         title: 'profile'
-      }
+      },
+      canActivate: [AuthGuardService],
     },
     {
       path: 'customer',
       component: CustomerLayoutComponent,
       data: {
         title: 'customer'
-      }
+      },
+      canActivate: [AuthGuardService],
     },
     {
       path: 'employee',
       component: EmployeeLayoutComponent,
       data: {
         title: 'employee'
-      }
+      },
+      canActivate: [AuthGuardService],
     },
     ]
   }

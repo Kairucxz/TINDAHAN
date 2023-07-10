@@ -1,4 +1,4 @@
-<mat-drawer-container class="sidenav-container">
+<mat-drawer-container class="sidenav-container" *ngIf="isAuthenticated">
   <mat-drawer #drawer mode="side" class="sidenav" opened="true">
     <h1 class="logo"><mat-icon>business_center</mat-icon> TINDAHAN</h1>
     <mat-nav-list>
@@ -66,7 +66,7 @@
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
-    <mat-toolbar>
+    <mat-toolbar *ngIf="isAuthenticated">
       <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>

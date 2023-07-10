@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {AuthenticationService} from "../../service/authentication/authentication.service";
 
 @Component({
   selector: 'app-navbar',
@@ -9,18 +10,20 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class NavbarComponent implements OnInit{
   currentDate: Date = new Date();
   selected: string | undefined;
-  constructor() { }
+  isAuthenticated : boolean = false;
+  constructor(
+    private canActive: AuthenticationService
+  ) { }
 
   ngOnInit() {
     setInterval(() => {
       this.currentDate = new Date();
     }, 1000);
-
+    this.isAuthenticated = this.canActive.isAuthenticated();
     this.selected = 'Dashboard'
   }
 
   saveInvoice(): void {
- 
     console.log('Invoice saved!');
   }
 }
