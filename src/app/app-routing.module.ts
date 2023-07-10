@@ -62,7 +62,8 @@ const routes: Routes = [
       },
       canActivate: [AuthGuardService],
     },
-    ]
+    ],
+    canActivate: [AuthGuardService],
   }
 ];
 
