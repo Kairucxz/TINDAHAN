@@ -3,7 +3,7 @@
     <h1 class="logo"><mat-icon>business_center</mat-icon> TINDAHAN</h1>
     <mat-nav-list>
       <mat-list-item
-        [routerLink]="['/home/dashboard']"
+        [routerLink]="['/dashboard']"
         (click)="selected = 'Dashboard'"
         [routerLinkActive]="['active']"
       >
@@ -11,7 +11,7 @@
         <span matListItemTitle>Dashboard</span>
       </mat-list-item>
       <mat-list-item
-        [routerLink]="['/home/inventory']"
+        [routerLink]="['/inventory']"
         (click)="selected = 'Inventory'"
         [routerLinkActive]="['active']"
       >
@@ -19,7 +19,7 @@
         <span matListItemTitle>Inventory</span>
       </mat-list-item>
       <mat-list-item
-        [routerLink]="['/home/pos']"
+        [routerLink]="['/pos']"
         (click)="selected = 'Point of Sale'"
         [routerLinkActive]="['active']"
       >
@@ -32,7 +32,7 @@
         </mat-expansion-panel-header>
         <mat-nav-list class="sub-menu">
           <mat-list-item
-            [routerLink]="['/home/customer']"
+            [routerLink]="['/customer']"
             (click)="selected = 'Customer Management'"
             [routerLinkActive]="['active']"
             class="sub-menu"
@@ -41,7 +41,7 @@
             <span matListItemTitle class="sub-menu-label">Customer</span>
           </mat-list-item>
           <mat-list-item
-            [routerLink]="['/home/employee']"
+            [routerLink]="['/employee']"
             (click)="selected = 'Employee Management'"
             [routerLinkActive]="['active']"
             class="sub-menu"
@@ -52,7 +52,7 @@
         </mat-nav-list>
       </mat-expansion-panel>
       <mat-list-item
-        [routerLink]="['/home/profile']"
+        [routerLink]="['/profile']"
         (click)="selected = 'Profile'"
         [routerLinkActive]="['active']"
       >
