@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 
@@ -17,6 +18,19 @@ export class CustomerTableComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+  @ViewChild('updateCustomer') updateCustomer!: TemplateRef<any>;
+
+  constructor(private dialog: MatDialog) {}
+
+  updateCustomerDetails(): void {
+    this.dialog.open(this.updateCustomer, {
+      
+      disableClose: false, 
+    });
+  
+  }
+
 }
 
 export interface PeriodicElement {

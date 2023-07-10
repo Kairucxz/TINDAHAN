@@ -1,4 +1,11 @@
-<p>employee-layout works!</p>
-<span class="material-symbols-outlined"> toggle_on </span>
-
-<span class="material-symbols-outlined"> settings </span>
+<div class="mainContainer">
+  <div class="titleContainer">
+    <div class="titleText">List of Employee</div>
+    <div class="buttonContainer">
+      <button (click)="openCutomerRegistration()">Add new Employee</button>
+    </div>
+  </div>
+  <div class="tableContainer">
+    <app-employee-table></app-employee-table>
+  </div>
+</div>

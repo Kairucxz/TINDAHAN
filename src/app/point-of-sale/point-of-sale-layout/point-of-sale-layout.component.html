@@ -1,36 +1,36 @@
 <div class="cardContainer">
-  <div class="invoiceCard">
-    <div class="cardItem">
-      <div class="cardText">Invoice No. :</div>
-      <div class="cardText">Payment Mode :</div>
-      <div class="cardText">Customer Name :</div>
-      <div class="cardText">User ID:</div>
-      <div class="cardText">User Name:</div>
-    </div>
-    <div class="cardItemField">
-      <div class="cardField">INV-0012</div>
-      <div class="cardFieldRadio">
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1">Cash</mat-radio-button>
-          <mat-radio-button value="2">Credit</mat-radio-button>
-        </mat-radio-group>
+  <div class="detailContainer">
+    <div class="invoiceCard">
+      <div class="cardItem">
+        <div class="invoiceNo">Invoice No. :</div>
+        <div class="paymentMode">Payment Mode :</div>
+        <div class="customerName">Customer Name :</div>
+        <div class="userID">User ID:</div>
+        <div class="userName">User Name:</div>
       </div>
-      <div class="cardField">Guest</div>
-      <div class="cardField">EID001</div>
-      <div class="cardField">Mark Lester Bugarin</div>
+      <div class="cardItemField">
+        <div class="invoiceNoField">INV-0012</div>
+        <div class="paymentModeRadio">
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="1">Cash</mat-radio-button>
+            <mat-radio-button value="2">Credit</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="customerNameField">Guest</div>
+        <div class="idField">EID001</div>
+        <div class="usernameField">Mark Lester Bugarin</div>
+      </div>
     </div>
-  </div>
-  <div class="totalContainer">
     <div class="totalCard">
       <div class="cardTotalItem">
-        <div class="cardTextTotal">Grand Total :</div>
-        <div class="cardTextTotal">Amount Tendered :</div>
-        <div class="cardTextTotal">Change :</div>
+        <div class="grandTotal">Grand Total :</div>
+        <div class="amountTendered">Amount Tendered :</div>
+        <div class="change">Change :</div>
       </div>
       <div class="cardTotalField">
-        <div class="grandTotal">1000.00</div>
-        <input class="cardInputField" type="text" />
-        <div class="cardTexField">Some text...</div>
+        <div class="grandTotalField">1000.00</div>
+        <input class="amountTenderedField" type="text" />
+        <div class="changeField">Some text...</div>
       </div>
     </div>
     <div class="barcodeCard">
@@ -41,29 +41,22 @@
         <input class="barcodeInputField" type="text" />
       </div>
     </div>
+    <div class="buttonCard">
+      <button class="checkoutButton" (click)="openInvoiceModal()">
+        Checkout
+      </button>
+      <button class="existingButton" (click)="openExistingCustomerModal()">
+        Existing Customer
+      </button>
+      <button class="openButton" (click)="openCutomerRegistration()">
+        New Customer
+      </button>
+    </div>
   </div>
-  <div class="buttonCard">
-    <button mat-raised-button class="buttonItem" (click)="openInvoiceModal()">
-      Checkout
-    </button>
-    <button
-      mat-raised-button
-      class="buttonItem"
-      (click)="openExistingCustomerModal()"
-    >
-      Existing Customer
-    </button>
-    <button
-      mat-raised-button
-      class="buttonItem"
-      (click)="openCutomerRegistration()"
-    >
-      New Customer
-    </button>
+
+  <div class="posTable">
+    <app-pos-table></app-pos-table>
   </div>
-</div>
-<div class="posTable">
-  <app-pos-table></app-pos-table>
 </div>
 <ng-template #invoiceModal>
   <app-invoice></app-invoice>

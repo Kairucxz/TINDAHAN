@@ -5,12 +5,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { CustomerTableComponent } from './customer-table/customer-table.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     CustomerLayoutComponent,
     CustomerTableComponent,
     CustomerRegistrationComponent,
+    SettingsComponent,
   ],
   exports: [
     CustomerRegistrationComponent

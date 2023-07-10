@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-employee-layout',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class EmployeeLayoutComponent {
 
+
+  @ViewChild('addCustomerModal') addCustomerModal!: TemplateRef<any>;
+
+  constructor(private dialog: MatDialog) {}
+
+  openCutomerRegistration(): void {
+    this.dialog.open(this.addCustomerModal, {
+      
+      disableClose: false, 
+    });
+  
+}
 }
