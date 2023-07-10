@@ -14,10 +14,7 @@ exports:[
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    MatExpansionModule,
-    
-
-
+    MatExpansionModule
 ]
 })
 export class MaterialModule{}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-layout',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile-layout.component.css']
 })
 export class ProfileLayoutComponent {
-
+  enableSelect = new FormControl(false);
 }
