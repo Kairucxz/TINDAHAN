@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { BrowserModule } from '@angular/platform-browser';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BrowserModule } from '@angular/platform-browser';
     MatGridListModule,
     MatCardModule,
     MatProgressBarModule,
-    NgFor
+    MatPaginatorModule,
+    MatTableModule
   ]
 })
 export class DashboardModule {

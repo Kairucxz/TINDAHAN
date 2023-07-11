@@ -5,7 +5,56 @@
 
 .widget-card {
     padding: 10px;
-    height: 280px;
-    width: 280px;
+    height: 97.5%;
+    width: 90%;
     border-radius: 15px;
+    justify-content: space-between;
   }
+
+  .graphContainer canvas{
+    height: 90%;
+  }
+
+  .table-header{
+    background-color: #4682B4 !important;
+      color: #fff;
+      font-size: 17px;
+      font-family: Inria Serif;
+      word-wrap: break-word;
+      
+  }
+
+  .table-cell-font {
+    font-size: 15px;
+    font-family: Inria Serif;
+   
+  }
+  .table-cell-center {
+    text-align: center;
+  }
+
+  .tableContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tableWrapper {
+    flex: 1;
+    overflow: auto;
+
+  }
+
+  table {
+    width: 90% !important;
+    height: 90% !important;
+  }
+
+  mat-card-content {
+    height: 90%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+  

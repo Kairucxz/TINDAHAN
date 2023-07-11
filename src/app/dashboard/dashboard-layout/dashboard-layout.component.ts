@@ -1,14 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { Chart, registerables } from 'chart.js/auto';
 
-export interface Tile {
-  title: string;
-  cols: number;
-  rows: number;
-  color: string;
-  amount: number;
-  content: string;
-  showGraph?: boolean;
-}
 
 
 @Component({
@@ -16,90 +10,96 @@ export interface Tile {
   templateUrl: './dashboard-layout.component.html',
   styleUrls: ['./dashboard-layout.component.css']
 })
-export class DashboardLayoutComponent {
-  tiles: Tile[] = [
-    {
-      title: 'Sales Widget',
-      cols: 1,
-      rows: 1,
-      color: 'lightblue',
-      amount: 1500,
-      content: 'Monthly'
-    },
-    {
-      title: 'Inventory Widget',
-      cols: 1,
-      rows: 1,
-      color: 'lightgreen',
-      amount: 1500,
-      content: 'Monthly'
-    },
-    {
-      title: 'Credits Widget',
-      cols: 1,
-      rows: 1,
-      color: 'lightpink',
-      amount: 1500,
-      content: 'Monthly'
-    },
-    {
-      title: 'Cash on Hand Widget',
-      cols: 1,
-      rows: 1,
-      color: '#ec9f79',
-      amount: 2000,
-      content: 'Monthly'
-    },
-    {
-      title: 'Sales Graph',
-      cols: 2,
-      rows: 1,
-      color: '#ffffcc',
-      amount: 0,
-      content: 'Total Sales: $100,000',
-      showGraph: true
-    },
-    {
-      title: 'Credits Graph',
-      cols: 2,
-      rows: 1,
-      color: '#66d9ff',
-      amount: 0,
-      content: 'Total Credits: $100,000',
-      showGraph: true
-    }
-  ];  
+export class DashboardLayoutComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('dashboardChart') barChartRef: any;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  private chart: Chart | undefined;
+  private resizeObserver: ResizeObserver | undefined;
+  displayedColumns: string[] = ['customerName', 'creditedAmount', 'balance', 'dueDate'];
+  dataSource = new MatTableDataSource<customerTable>(ELEMENT_DATA);
 
-  chartOptions = {
-	  title: {
-		  text: "Monthly Sales Data"
-	  },
-	  theme: "light2",
-	  animationEnabled: true,
-	  exportEnabled: true,
-	  axisY: {
-		includeZero: true,
-		valueFormatString: "$#,##0k"
-	  },
-	  data: [{
-		type: "column", //change type to bar, line, area, pie, etc
-		yValueFormatString: "$#,##0k",
-		color: "#01b8aa",
-		dataPoints: [
-			{ label: "Jan", y: 172 },
-			{ label: "Feb", y: 189 },
-			{ label: "Mar", y: 201 },
-			{ label: "Apr", y: 240 },
-			{ label: "May", y: 166 },
-			{ label: "Jun", y: 196 },
-			{ label: "Jul", y: 218 },
-			{ label: "Aug", y: 167 },
-			{ label: "Sep", y: 175 },
-			{ label: "Oct", y: 152 },
-			{ label: "Nov", y: 156 },
-			{ label: "Dec", y: 164 }
-		]
-	  }]
-	}
-  
+  constructor() { }
+
+  ngAfterViewInit() {
+    Chart.register(...registerables);
+    this.createChart();
+    this.dataSource.paginator = this.paginator;
+
+    // Initialize ResizeObserver to detect changes in view size
+    this.resizeObserver = new ResizeObserver(() => {
+      this.updateChart();
+    });
+    this.resizeObserver.observe(this.barChartRef.nativeElement);
+  }
+
+  ngOnDestroy() {
+    // Clean up the ResizeObserver
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
+  private createChart() {
+    // Destroy the previous chart instance if exists
+    if (this.chart) {
+      this.chart.destroy();
+    }
+
+    // Create the new chart
+    this.chart = new Chart(this.barChartRef.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [
+          { label: 'Series A', data: [65, 59, 80, 81, 56, 55], backgroundColor: '#42A5F5' },
+          { label: 'Series B', data: [28, 48, 40, 19, 86, 27], backgroundColor: '#FFA726' },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true
+      },
+    });
+  }
+
+  private updateChart() {
+    // Update the chart size to fit the new container dimensions
+    if (this.chart) {
+      this.chart.resize();
+    }
+  }
 }
+
+export interface customerTable {
+  customerName: string;
+  creditedAmount: number;
+  balance: number;
+  dueDate: Date;
+}
+
+const ELEMENT_DATA: customerTable[] = [
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
+]
