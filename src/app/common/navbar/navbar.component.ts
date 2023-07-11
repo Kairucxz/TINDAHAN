@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {AuthenticationService} from "../../service/authentication/authentication.service";
+import { AuthenticationService } from 'src/app/service/authentication/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit{
   selected: string | undefined;
   isAuthenticated : boolean = false;
   constructor(
-    private canActive: AuthenticationService
+    private canActive : AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -23,7 +23,4 @@ export class NavbarComponent implements OnInit{
     this.selected = 'Dashboard'
   }
 
-  saveInvoice(): void {
-    console.log('Invoice saved!');
-  }
 }

@@ -33,7 +33,7 @@ import { CustomerModule } from '../user-management/customer/customer.module';
     MatSelectModule,
     MatFormFieldModule,
     EmployeeModule,
-    CustomerModule, // Add this line
+    CustomerModule,
   ],
 })
 export class PointOfSaleModule {}

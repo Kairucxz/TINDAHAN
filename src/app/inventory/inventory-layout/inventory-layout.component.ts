@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-inventory-layout',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./inventory-layout.component.css']
 })
 export class InventoryLayoutComponent {
+  
+  @ViewChild('addNewProductModal') addNewProductModal!: TemplateRef<any>;
+
+  constructor(private dialog: MatDialog) {}
+
+  addNewProductForm(): void {
+    this.dialog.open(this.addNewProductModal, {
+      
+      disableClose: false, 
+    });
+  
+  }
 
 }

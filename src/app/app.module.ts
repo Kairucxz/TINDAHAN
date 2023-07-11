@@ -16,6 +16,7 @@ import {LoginComponent} from "./login/login.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ProfileModule } from './profile/profile.module';
+import { InventoryModule } from './inventory/inventory.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ProfileModule } from './profile/profile.module';
     AppMaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ProfileModule
+    ProfileModule,
+    InventoryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

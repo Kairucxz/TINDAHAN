@@ -13,7 +13,6 @@ export class AuthenticationService {
     private authenticationStateService: AuthenticationStateService,
     private router: Router,
     private httpClient: HttpClient,
-    private ngZone: NgZone,
   ) {}
 
   isAuthenticated() {

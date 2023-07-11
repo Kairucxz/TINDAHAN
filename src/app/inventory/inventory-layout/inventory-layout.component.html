@@ -1,1 +1,14 @@
-<p>inventory-layout works!</p>
+<div class="mainContainer">
+  <div class="titleContainer">
+    <div class="titleText">List of Products</div>
+    <div class="buttonContainer">
+      <button (click)="addNewProductForm()">Add New Customer</button>
+    </div>
+  </div>
+  <div class="tableContainer">
+    <app-inventory-table></app-inventory-table>
+  </div>
+</div>
+<ng-template #addNewProductModal>
+  <app-add-product></app-add-product>
+</ng-template>
