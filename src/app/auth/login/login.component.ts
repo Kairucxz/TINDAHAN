@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import {AuthenticationService} from "../service/authentication/authentication.service";
+import {AuthenticationService} from "../../service/authentication/authentication.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 // import * as http from "http";
