@@ -8,12 +8,14 @@ import { ProfileLayoutComponent } from './profile/profile-layout/profile-layout.
 import { CustomerLayoutComponent } from './user-management/customer/customer-layout/customer-layout.component';
 import { EmployeeLayoutComponent } from './user-management/employee/employee-layout/employee-layout.component';
 import {AuthGuardService} from "./service/authguard/auth-guard.service";
+import { AppLayoutComponent } from "./layout/app-layout.component";
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: '', children: [
+  {path: '', component: AppLayoutComponent,
+  children: [
     {
       path: 'dashboard',
       component: DashboardLayoutComponent,
