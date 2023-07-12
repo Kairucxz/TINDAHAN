@@ -1,0 +1,83 @@
+
+.not-found-container {
+    background-color: #fafafa;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: url("src\assets\images\not-found-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.not-found-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-found-border {
+    border-radius: 56px;
+    padding: 0.3rem;
+    background: linear-gradient(180deg, rgba(33, 150, 243, 0.4) 10%, rgba(33, 150, 243, 0) 30%);
+}
+
+.not-found-card {
+    width: inherit;
+    background-color: #fff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 53px;
+}
+
+.not-found-card-title {
+    color: #2196f3;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.not-found-card-title2 {
+    color: #212121;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.not-found-card-title3 {
+    color: #757575;
+    margin-bottom: 2rem;
+}
+
+.not-found-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-color: #E0E0E0;
+    border-bottom: 1px;
+    
+}
+
+.not-found-link-content {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    background-color: #30c9dc;
+    border-radius: 4px;
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+  }
