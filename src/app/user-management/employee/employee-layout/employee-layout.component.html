@@ -2,10 +2,13 @@
   <div class="titleContainer">
     <div class="titleText">List of Employee</div>
     <div class="buttonContainer">
-      <button (click)="openCutomerRegistration()">Add new Employee</button>
+      <button (click)="openEmployeeRegistration()">Add new Employee</button>
     </div>
   </div>
   <div class="tableContainer">
     <app-employee-table></app-employee-table>
   </div>
 </div>
+<ng-template #addEmployeeModal>
+  <app-add-employee></app-add-employee>
+</ng-template>

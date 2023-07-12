@@ -9,12 +9,12 @@ import { MatDialog } from '@angular/material/dialog';
 export class EmployeeLayoutComponent {
 
 
-  @ViewChild('addCustomerModal') addCustomerModal!: TemplateRef<any>;
+  @ViewChild('addEmployeeModal') addEmployeeModal!: TemplateRef<any>;
 
   constructor(private dialog: MatDialog) {}
 
-  openCutomerRegistration(): void {
-    this.dialog.open(this.addCustomerModal, {
+  openEmployeeRegistration(): void {
+    this.dialog.open(this.addEmployeeModal, {
       
       disableClose: false, 
     });

@@ -1,0 +1,104 @@
+.registrationContainer {
+  width: 500px;
+  height: 685px;
+  background-color: #f0f8ff;
+}
+
+.titleContainer {
+  padding: 20px;
+  background-color: #4682b4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: Inria Serif;
+  word-wrap: break-word;
+}
+.customerIdContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.border {
+  background-color: #f0f8ff;
+  border: 1px solid #4682b4;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.formContainer {
+  margin: 20px;
+  font-size: 15px;
+  font-family: Inria Serif;
+  word-wrap: break-word;
+}
+
+.customerId,
+.firstName,
+.lastName,
+.address,
+.username,
+.password,
+.userType {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.cashier,
+.inventoryClerk {
+  font-size: 15px;
+  font-family: Inria Serif;
+  word-wrap: break-word;
+}
+.selectContainer {
+  margin-left: 10px;
+  margin-right: 30px;
+}
+.selectField {
+  width: 399px;
+  padding: 8px;
+  outline-color: #4682b4;
+  border-radius: 4px;
+}
+
+.inputField input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #4682b4;
+  border-radius: 5px;
+  outline: none;
+}
+
+.inputField input:focus {
+  box-shadow: 0 0 5px #4682b4;
+}
+
+.inputField {
+  margin-left: 10px;
+  margin-right: 30px;
+  margin-bottom: 15px;
+}
+
+.buttonContainer {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: box-shadow 0.5s;
+  background-color: #87ceeb;
+}
+
+button:active {
+  box-shadow: 0 0 5px #4682b4;
+}
+button:hover {
+  background-color: #4682b4;
+}

@@ -1,0 +1,61 @@
+<div class="registrationContainer">
+  <div class="titleContainer">
+    <div class="titleText">Register New Employee</div>
+  </div>
+  <div class="border">
+    <div class="formContainer">
+      <div class="firstName">First name:</div>
+      <div class="inputField">
+        <input
+          type="text"
+          placeholder="Enter first name"
+          [(ngModel)]="newEmployee.firstName"
+        />
+      </div>
+      <div class="lastName">Last name</div>
+      <div class="inputField">
+        <input
+          type="text"
+          placeholder="Enter last name"
+          [(ngModel)]="newEmployee.lastName"
+        />
+      </div>
+      <div class="address">Address:</div>
+      <div class="inputField">
+        <input
+          type="text"
+          placeholder="Enter address"
+          [(ngModel)]="newEmployee.address"
+        />
+      </div>
+      <div class="username">Username:</div>
+      <div class="inputField">
+        <input
+          type="text"
+          placeholder="Enter username"
+          [(ngModel)]="newEmployee.username"
+        />
+      </div>
+      <div class="password">Password:</div>
+      <div class="inputField">
+        <input
+          type="text"
+          placeholder="Enter password"
+          [(ngModel)]="newEmployee.password"
+        />
+      </div>
+      <div class="userType">Role:</div>
+      <div class="selectContainer">
+        <select [(ngModel)]="newEmployee.userType" class="selectField">
+          <option value="Cashier" class="cashier">Cashier</option>
+          <option value="InventoryClerk" class="inventoryClerk">
+            Inventory Clerk
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="buttonContainer" (click)="saveNewEmployee()">
+      <button>Register</button>
+    </div>
+  </div>
+</div>

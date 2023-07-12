@@ -4,17 +4,22 @@ import { EmployeeLayoutComponent } from './employee-layout/employee-layout.compo
 import { EmployeeTableComponent } from './employee-table/employee-table.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
     EmployeeLayoutComponent,
-    EmployeeTableComponent
+    EmployeeTableComponent,
+    AddEmployeeComponent
   ],
   imports: [
     CommonModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule
   ]
 })
 export class EmployeeModule { }

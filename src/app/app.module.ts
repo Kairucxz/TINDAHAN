@@ -17,6 +17,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ProfileModule } from './profile/profile.module';
 import { InventoryModule } from './inventory/inventory.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { InventoryModule } from './inventory/inventory.module';
     ReactiveFormsModule,
     HttpClientModule,
     ProfileModule,
-    InventoryModule
+    InventoryModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
