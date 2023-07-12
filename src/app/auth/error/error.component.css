@@ -1,0 +1,74 @@
+.error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+    background-image: url("src\assets\images\error-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.error-main {
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-border {
+    border-radius: 56px;
+    padding: 0.3rem;
+}
+
+.error-card {
+    width: 100%;
+    background-color: #fff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 53px;
+}
+
+.error-card-main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error-card-header {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    background-color: #fd24a3;
+    width:3.2rem; 
+    height:3.2rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+
+.error-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #212121;
+}
+
+.error-text2 {
+    color: #757575;
+    margin-bottom: 2rem;
+}
+
+.error-svg {
+    margin-bottom: 2rem;
+    width: 80%;
+}
