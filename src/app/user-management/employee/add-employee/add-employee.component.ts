@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EmployeeModel } from 'src/app/model/EmployeeModel';
 import { EmployeeService } from 'src/app/service/employee/employee.service';
@@ -28,6 +29,10 @@ export class AddEmployeeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  checkInputError(control: AbstractControl): boolean {
+    return control.invalid && control.touched;
+  }
 
   saveNewEmployee(): void {
     this.employeeService.createEmployee(this.newEmployee).subscribe(

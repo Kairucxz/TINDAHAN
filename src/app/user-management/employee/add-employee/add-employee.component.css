@@ -102,3 +102,11 @@ button:active {
 button:hover {
   background-color: #4682b4;
 }
+
+.error {
+  background-color: #ff7e7e;
+}
+
+em {
+  color: #ff7e7e;
+}

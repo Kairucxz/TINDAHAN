@@ -4,58 +4,93 @@
   </div>
   <div class="border">
     <div class="formContainer">
+      <form #employeeForm="ngForm">
       <div class="firstName">First name:</div>
       <div class="inputField">
         <input
           type="text"
           placeholder="Enter first name"
+          name="firstName"
           [(ngModel)]="newEmployee.firstName"
+          [ngClass]="{'error': checkInputError(employeeForm.controls['firstName'])}"
         />
+        <em *ngIf="checkInputError(employeeForm.controls['firstName'])">
+          Enter your first name
+        </em>
       </div>
       <div class="lastName">Last name</div>
       <div class="inputField">
         <input
           type="text"
           placeholder="Enter last name"
+          name="lastName"
           [(ngModel)]="newEmployee.lastName"
+          [ngClass]="{'error': checkInputError(employeeForm.controls['lastName'])}"
         />
+        <em *ngIf="checkInputError(employeeForm.controls['lastName'])">
+          Enter your last name
+        </em>
       </div>
       <div class="address">Address:</div>
       <div class="inputField">
         <input
           type="text"
           placeholder="Enter address"
+          name="address"
           [(ngModel)]="newEmployee.address"
+          [ngClass]="{'error': checkInputError(employeeForm.controls['address'])}"
         />
+        <em *ngIf="checkInputError(employeeForm.controls['address'])">
+          Enter your address
+        </em>
       </div>
       <div class="username">Username:</div>
       <div class="inputField">
         <input
           type="text"
           placeholder="Enter username"
+          name="username"
           [(ngModel)]="newEmployee.username"
+          [ngClass]="{'error': checkInputError(employeeForm.controls['username'])}"
         />
+        <em *ngIf="checkInputError(employeeForm.controls['username'])">
+          Enter your username
+        </em>
       </div>
       <div class="password">Password:</div>
       <div class="inputField">
         <input
           type="text"
           placeholder="Enter password"
+          name="password"
           [(ngModel)]="newEmployee.password"
+          [ngClass]="{'error': checkInputError(employeeForm.controls['password'])}"
         />
+        <em *ngIf="checkInputError(employeeForm.controls['password'])">
+          Enter your password
+        </em>
       </div>
       <div class="userType">Role:</div>
       <div class="selectContainer">
-        <select [(ngModel)]="newEmployee.userType" class="selectField">
+        <select
+          name="userType"
+          [(ngModel)]="newEmployee.userType"
+          class="selectField"
+          [ngClass]="{'error': checkInputError(employeeForm.controls['userType'])}"
+        >
           <option value="Cashier" class="cashier">Cashier</option>
           <option value="InventoryClerk" class="inventoryClerk">
             Inventory Clerk
           </option>
         </select>
+        <em *ngIf="checkInputError(employeeForm.controls['userType'])">
+          Enter your user type
+        </em>
       </div>
+      </form>
     </div>
-    <div class="buttonContainer" (click)="saveNewEmployee()">
-      <button>Register</button>
+    <div class="buttonContainer">
+      <button [disabled]="employeeForm.form.invalid" (click)="saveNewEmployee()">Register</button>
     </div>
   </div>
 </div>
