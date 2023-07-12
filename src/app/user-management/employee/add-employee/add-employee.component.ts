@@ -30,20 +30,28 @@ export class AddEmployeeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  checkIfValid(control: {}) {
-    let fcontrol: FormControl = control as FormControl
-    console.log(fcontrol)
+  checkIfEmployeeValid(): boolean {
+    return (
+      this.newEmployee.firstName != '' &&
+      this.newEmployee.lastName != '' &&
+      this.newEmployee.address != '' &&
+      this.newEmployee.username != '' &&
+      this.newEmployee.password != '' &&
+      this.newEmployee.userType != 'USER'
+    )
   }
 
   saveNewEmployee(): void {
-    this.employeeService.createEmployee(this.newEmployee).subscribe(
-      (response: EmployeeModel) => {
-        console.log('New employee created:', response);
-        this.dialogRef.close();
-      },
-      (error: any) => {
-        console.error('Error creating employee:', error);
-      }
-    );
+    if (this.checkIfEmployeeValid()) {
+      this.employeeService.createEmployee(this.newEmployee).subscribe(
+        (response: EmployeeModel) => {
+          console.log('New employee created:', response);
+          this.dialogRef.close();
+        },
+        (error: any) => {
+          console.error('Error creating employee:', error);
+        }
+      );
+    }
   }
 }
