@@ -1,0 +1,27 @@
+.layout-wrapper {
+    background: #F0F8FF;
+    height: 100vh;
+    min-height: 100vh;
+}
+
+.layout-sidebar {
+    width: 18%;
+    background: #4682B4;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.layout-main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    margin-left: 0;
+}
+
+.layout-main {
+    flex: 1 1 auto;
+}
+
