@@ -11,10 +11,11 @@
           type="text"
           placeholder="Enter first name"
           name="firstName"
+          #firstName="ngModel"
           [(ngModel)]="newEmployee.firstName"
-          [ngClass]="{'error': checkInputError(employeeForm.controls['firstName'])}"
+          [ngClass]="{'error': firstName.touched && !firstName.value}"
         />
-        <em *ngIf="checkInputError(employeeForm.controls['firstName'])">
+        <em *ngIf="firstName.touched && !firstName.value">
           Enter your first name
         </em>
       </div>
@@ -24,10 +25,11 @@
           type="text"
           placeholder="Enter last name"
           name="lastName"
+          #lastName="ngModel"
           [(ngModel)]="newEmployee.lastName"
-          [ngClass]="{'error': checkInputError(employeeForm.controls['lastName'])}"
+          [ngClass]="{'error': lastName.touched && !lastName.value}"
         />
-        <em *ngIf="checkInputError(employeeForm.controls['lastName'])">
+        <em *ngIf="lastName.touched && !lastName.value">
           Enter your last name
         </em>
       </div>
@@ -37,10 +39,11 @@
           type="text"
           placeholder="Enter address"
           name="address"
+          #address="ngModel"
           [(ngModel)]="newEmployee.address"
-          [ngClass]="{'error': checkInputError(employeeForm.controls['address'])}"
+          [ngClass]="{'error': address.touched && !address.value}"
         />
-        <em *ngIf="checkInputError(employeeForm.controls['address'])">
+        <em *ngIf="address.touched && !address.value">
           Enter your address
         </em>
       </div>
@@ -50,10 +53,11 @@
           type="text"
           placeholder="Enter username"
           name="username"
+          #username="ngModel"
           [(ngModel)]="newEmployee.username"
-          [ngClass]="{'error': checkInputError(employeeForm.controls['username'])}"
+          [ngClass]="{'error': username.touched && !username.value}"
         />
-        <em *ngIf="checkInputError(employeeForm.controls['username'])">
+        <em *ngIf="username.touched && !username.value">
           Enter your username
         </em>
       </div>
@@ -63,10 +67,11 @@
           type="text"
           placeholder="Enter password"
           name="password"
+          #password="ngModel"
           [(ngModel)]="newEmployee.password"
-          [ngClass]="{'error': checkInputError(employeeForm.controls['password'])}"
+          [ngClass]="{'error': password.touched && !password.value}"
         />
-        <em *ngIf="checkInputError(employeeForm.controls['password'])">
+        <em *ngIf="password.touched && !password.value">
           Enter your password
         </em>
       </div>
@@ -74,23 +79,24 @@
       <div class="selectContainer">
         <select
           name="userType"
+          #userType="ngModel"
           [(ngModel)]="newEmployee.userType"
           class="selectField"
-          [ngClass]="{'error': checkInputError(employeeForm.controls['userType'])}"
+          [ngClass]="{'error': userType.value == 'USER'}"
         >
-          <option value="Cashier" class="cashier">Cashier</option>
-          <option value="InventoryClerk" class="inventoryClerk">
+          <option value="CASHIER" class="cashier">Cashier</option>
+          <option value="INVENTORY_CLERK" class="inventoryClerk">
             Inventory Clerk
           </option>
         </select>
-        <em *ngIf="checkInputError(employeeForm.controls['userType'])">
+        <em *ngIf="userType.value == 'USER'">
           Enter your user type
         </em>
       </div>
       </form>
     </div>
     <div class="buttonContainer">
-      <button [disabled]="employeeForm.form.invalid" (click)="saveNewEmployee()">Register</button>
+      <button type="submit" [disabled]="employeeForm.form.invalid" (click)="saveNewEmployee()">Register</button>
     </div>
   </div>
 </div>
