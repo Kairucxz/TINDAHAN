@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EmployeeModel } from 'src/app/model/EmployeeModel';
 import { EmployeeService } from 'src/app/service/employee/employee.service';
@@ -30,19 +30,28 @@ export class AddEmployeeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  checkInputError(control: AbstractControl): boolean {
-    return control.invalid && control.touched;
+  checkIfEmployeeValid(): boolean {
+    return (
+      this.newEmployee.firstName != '' &&
+      this.newEmployee.lastName != '' &&
+      this.newEmployee.address != '' &&
+      this.newEmployee.username != '' &&
+      this.newEmployee.password != '' &&
+      this.newEmployee.userType != 'USER'
+    )
   }
 
   saveNewEmployee(): void {
-    this.employeeService.createEmployee(this.newEmployee).subscribe(
-      (response: EmployeeModel) => {
-        console.log('New employee created:', response);
-        this.dialogRef.close();
-      },
-      (error: any) => {
-        console.error('Error creating employee:', error);
-      }
-    );
+    if (this.checkIfEmployeeValid()) {
+      this.employeeService.createEmployee(this.newEmployee).subscribe(
+        (response: EmployeeModel) => {
+          console.log('New employee created:', response);
+          this.dialogRef.close();
+        },
+        (error: any) => {
+          console.error('Error creating employee:', error);
+        }
+      );
+    }
   }
 }
