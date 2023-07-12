@@ -1,4 +1,4 @@
-import {LoginComponent} from "./login/login.component";
+import {LoginComponent} from "./auth/login/login.component";
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './dashboard/dashboard-layout/dashboard-layout.component';
@@ -9,11 +9,17 @@ import { CustomerLayoutComponent } from './user-management/customer/customer-lay
 import { EmployeeLayoutComponent } from './user-management/employee/employee-layout/employee-layout.component';
 import {AuthGuardService} from "./service/authguard/auth-guard.service";
 import { AppLayoutComponent } from "./layout/app-layout.component";
+import { AccessComponent } from "./auth/access/access.component";
+import { ErrorComponent } from "./auth/error/error.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
+  {path: 'denied-access', component: AccessComponent},
+  {path: 'error', component: ErrorComponent},
+  {path: 'not-found', component: NotFoundComponent},
   {path: '', component: AppLayoutComponent,
   children: [
     {

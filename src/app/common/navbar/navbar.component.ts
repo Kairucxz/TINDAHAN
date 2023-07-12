@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/service/authentication/authentication.service';
 import { SharedService } from 'src/app/service/shared/shared.service';
