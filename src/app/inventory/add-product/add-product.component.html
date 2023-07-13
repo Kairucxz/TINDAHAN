@@ -1,48 +1,37 @@
-<!-- <div class="registrationContainer">
+<div class="registrationContainer">
   <div class="titleContainer">
-    <h2 mat-dialog-title>Products</h2>
+    <h1>New Product</h1>
   </div>
   <div class="border">
     <div class="formContainer">
-      <form [formGroup]="Reactiveform" (ngSubmit)="SaveEmployee()">
+      <form [formGroup]="form" (ngSubmit)="addProduct()">
         <div mat-dialog-content>
-          <mat-form-field>
-            <mat-label>Code</mat-label>
-            <input placeholder="Code" matInput formControlName="code" />
+          <mat-form-field class="full-width-input">
+            <mat-label>Product Name</mat-label>
+            <input placeholder="Product name" matInput formControlName="prodName" />
           </mat-form-field>
-          <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input placeholder="Name" matInput formControlName="name" />
+          <mat-form-field class="full-width-input">
+            <mat-label>Product Description</mat-label>
+            <input placeholder="Product Description" matInput formControlName="prodDesc" />
           </mat-form-field>
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input placeholder="Email" matInput formControlName="email" />
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Phone</mat-label>
-            <input placeholder="Phone" matInput formControlName="phone" />
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Designation</mat-label>
-            <mat-select formControlName="designation">
-              <mat-option *ngFor="let item of desdata" [value]="item.code">
-                {{ item.name }}
+          <br>
+          <mat-form-field class="full-width-input">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let item of category" [value]="item.id">
+                {{ item.categoryName }}
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-radio-group
-            formControlName="gender"
-            aria-label="Select an Gender"
-          >
-            <mat-radio-button value="M">Male</mat-radio-button>
-            <mat-radio-button value="F">Female</mat-radio-button>
-          </mat-radio-group>
-          <section class="example-section">
-            <br />
-            <mat-checkbox formControlName="isactive" class="example-margin"
-              >Is Active</mat-checkbox
-            >
-          </section>
+          <mat-form-field class="full-width-input">
+            <mat-label>Unit Price</mat-label>
+            <input placeholder="Unit Price" matInput formControlName="unitPrice" />
+          </mat-form-field>
+          <br>
+          <mat-form-field class="full-width-input">
+            <mat-label>Quantity</mat-label>
+            <input placeholder="Quantity" matInput formControlName="quantity" />
+          </mat-form-field>
         </div>
         <div mat-dialog-actions>
           <button mat-raised-button color="warn" mat-dialog-close>Close</button>
@@ -58,4 +47,4 @@
       </form>
     </div>
   </div>
-</div> -->
+</div>
