@@ -6,10 +6,6 @@
     <div class="profileItem">
       <div class="profileText">Employee ID</div>
       <div class="profileText">Fullname</div>
-      <div class="profileText">Gender</div>
-      <div class="profileText">Date of Birth</div>
-      <div class="profileText">Gender</div>
-      <div class="profileText">Address</div>
       <div class="profileText">Email</div>
       <div class="profileText">Role</div>
 <!--      <div class="profileText">Password</div>-->
@@ -19,20 +15,12 @@
       <div class="profileText">:</div>
       <div class="profileText">:</div>
       <div class="profileText">:</div>
-      <div class="profileText">:</div>
-      <div class="profileText">:</div>
-      <div class="profileText">:</div>
-      <div class="profileText">:</div>
     </div>
     <div class="profileItemField">
       <div class="profileField">{{currentUser.id}}</div>
       <div class="profileField">{{currentUser.firstName + ' ' + currentUser.lastName}}</div>
-      <div class="profileField">Male</div>
-      <div class="profileField">January 1 1969</div>
-      <div class="profileField">1234567890</div>
-      <div class="profileField">Brgy Tibay street, Makati City 6969</div>
       <div class="profileField">{{currentUser.email}}</div>
-      <div class="profileField">Administrator</div>
+      <div class="profileField">{{currentUser.role}}</div>
 <!--      <input type="password" class="profileField" value="password" disabled>-->
     </div>
   </div>
