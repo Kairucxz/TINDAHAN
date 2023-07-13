@@ -25,13 +25,13 @@
       <div class="profileText">:</div>
     </div>
     <div class="profileItemField">
-      <div class="profileField">EID001</div>
-      <div class="profileField">Mark Lester Bugarin</div>
+      <div class="profileField">{{currentUser.id}}</div>
+      <div class="profileField">{{currentUser.firstName + ' ' + currentUser.lastName}}</div>
       <div class="profileField">Male</div>
       <div class="profileField">January 1 1969</div>
       <div class="profileField">1234567890</div>
       <div class="profileField">Brgy Tibay street, Makati City 6969</div>
-      <div class="profileField">admin@mail.com</div>
+      <div class="profileField">{{currentUser.email}}</div>
       <div class="profileField">Administrator</div>
 <!--      <input type="password" class="profileField" value="password" disabled>-->
     </div>
