@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from 'src/app/service/authentication/authentication.service';
 import { SharedService } from 'src/app/service/shared/shared.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { SharedService } from 'src/app/service/shared/shared.service';
 export class SidebarComponent {
 selected: string | undefined;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(
+    private sharedService: SharedService,
+    private authentication: AuthenticationService
+  ) {}
 
   setSelected(selected: string) {
     this.sharedService.setSelected(selected);
@@ -17,5 +21,9 @@ selected: string | undefined;
 
   toggleDrawer() {
     this.sharedService.toggleDrawer();
+  }
+
+  logout() {
+    this.authentication.logout();
   }
 }

@@ -59,7 +59,11 @@
     <mat-icon matListItemIcon>person</mat-icon>
     <span matListItemTitle>Profile</span>
   </mat-list-item>
-  <mat-list-item>
+  <mat-list-item
+    [routerLink]="['/']"
+    (click)="logout()"
+    [routerLinkActive]="['active']"
+  >
     <mat-icon matListItemIcon>logout</mat-icon>
     <span matListItemTitle>Logout</span>
   </mat-list-item>
