@@ -31,9 +31,8 @@ export class LoginComponent {
   }
 
   ngOnInit() {
-    // this.form = this.fb.group({
-    //   userName: ['', Validators.required],
-    //   password: ['', Validators.required]
+    // this.http.get(this.apiURL).subscribe((response) => {
+    //   console.log('response received is ', response);
     // });
   }
 

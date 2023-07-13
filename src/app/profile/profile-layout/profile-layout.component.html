@@ -5,24 +5,23 @@
   <div class="profileLabel">
     <div class="profileItem">
       <div class="profileText">Employee ID</div>
-      <div class="profileText">Name</div>
+      <div class="profileText">Fullname</div>
       <div class="profileText">Email</div>
       <div class="profileText">Role</div>
-      <div class="profileText">Password</div>
+<!--      <div class="profileText">Password</div>-->
     </div>
     <div class="separator">
       <div class="profileText">:</div>
       <div class="profileText">:</div>
       <div class="profileText">:</div>
       <div class="profileText">:</div>
-      <div class="profileText">:</div>
     </div>
     <div class="profileItemField">
-      <div class="profileField">EID001</div>
-      <div class="profileField">Mark Lester Bugarin</div>
-      <div class="profileField">admin@mail.com</div>
-      <div class="profileField">Administrator</div>
-      <input type="password" class="profileField" value="password" disabled>
+      <div class="profileField">{{currentUser.id}}</div>
+      <div class="profileField">{{currentUser.firstName + ' ' + currentUser.lastName}}</div>
+      <div class="profileField">{{currentUser.email}}</div>
+      <div class="profileField">{{currentUser.role}}</div>
+<!--      <input type="password" class="profileField" value="password" disabled>-->
     </div>
   </div>
   <div class="footerContainer">

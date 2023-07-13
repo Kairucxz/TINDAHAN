@@ -26,6 +26,7 @@ export class AuthenticationService {
         user.access_token = response['access_token'];
         user.refresh_token = response['refresh_token'];
         user.userId = response['user_id'];
+        user.role = response['role'];
         this.authenticationStateService.setCurrentUser(user);
         window.location.replace("/dashboard");
       });
