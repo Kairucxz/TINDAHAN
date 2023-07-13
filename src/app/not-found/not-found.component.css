@@ -57,27 +57,7 @@
     margin-bottom: 2rem;
 }
 
-.not-found-link {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border-color: #E0E0E0;
-    border-bottom: 1px;
-    
+.not-found-svg {
+    margin-bottom: 2rem;
+    width: 80%;
 }
-
-.not-found-link-content {
-    display: inherit;
-    justify-content: center;
-    align-items: center;
-    background-color: #30c9dc;
-    border-radius: 4px;
-    height: 3.5rem;
-    width: 3.5rem;
-}
-
-a, a:visited, a:hover, a:active {
-    color: inherit;
-  }
