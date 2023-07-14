@@ -13,6 +13,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   exports: [
@@ -28,7 +33,13 @@ import { MatTableModule } from '@angular/material/table';
     MatProgressBarModule,
     MatGridListModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatDialogModule,
+    FormsModule,
+    MatCheckboxModule,
+    ReactiveFormsModule
   ]
 })
 export class AppMaterialModule {}

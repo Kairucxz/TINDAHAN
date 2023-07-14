@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeLayoutComponent } from './employee-layout/employee-layout.component';
 import { EmployeeTableComponent } from './employee-table/employee-table.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material/table';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
-import { FormsModule } from '@angular/forms';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 
 
@@ -17,9 +15,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    MatTableModule,
-    MatPaginatorModule,
-    FormsModule
+    AppMaterialModule
   ]
 })
 export class EmployeeModule { }
