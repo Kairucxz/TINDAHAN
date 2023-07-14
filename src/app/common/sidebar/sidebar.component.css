@@ -7,8 +7,8 @@
     padding: 0px !important;
 }
 
-.mat-expansion-panel-header{
-    padding: 0 15px !important;
+mat-expansion-panel-header{
+    padding: 0px 20px 0px 40px !important;
     height: 65px;
 }
 
@@ -29,4 +29,12 @@
 .logo {
     margin: 20px 10px 10px !important;
     text-align: center;
+}
+
+h1, mat-icon, span, mat-expansion-panel {
+    color: #fff !important;
+}
+
+mat-list-item {
+    padding-left: 20px !important;
 }

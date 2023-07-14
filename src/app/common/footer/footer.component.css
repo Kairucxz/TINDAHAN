@@ -3,5 +3,14 @@
     align-items: center;
     justify-content: center;
     padding-top: 1rem;
-    border-top: 1px solid;
+    /* border-top: 1px solid; */
+    height: 75px;
+    background: #4682B4;
+    color: #fff;
+    /* background: linear-gradient(180deg, rgba(240,248,255,1) 0%, rgba(21,150,255,1) 54%, rgba(70,130,180,1) 100%); */
+}
+
+.footer-text {
+    font-weight: 500;
+    font-size: 15px;
 }

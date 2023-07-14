@@ -1,4 +1,4 @@
-<mat-grid-list cols="4" gutterSize="10px">
+<mat-grid-list cols="4" gutterSize="10px" rowHeight="500px">
   <!-- Sales Widget -->
   <mat-grid-tile colspan="1" class="tile-widget">
     <mat-card class="widget-card">
@@ -6,8 +6,8 @@
         <mat-card-title>Orders Widget</mat-card-title>
       </mat-card-header>
       <mat-card-content class="mat-card-content-widgets">
-        <h2>1500</h2>
-        <!-- <mat-icon>cart</mat-icon> -->
+        <h2 class="widget-number">1500</h2>
+        <mat-icon>shopping_cart</mat-icon>
       </mat-card-content>
       <mat-card-footer>
         <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
@@ -17,14 +17,14 @@
   </mat-grid-tile>
 
   <!-- Inventory Widget -->
-  <mat-grid-tile colspan="1" rowspan="1">
+  <mat-grid-tile colspan="1" class="tile-widget">
     <mat-card class="widget-card">
       <mat-card-header>
         <mat-card-title>Revenue Widget</mat-card-title>
       </mat-card-header>
       <mat-card-content class="mat-card-content-widgets">
-        <h2>1500</h2>
-        <!-- <mat-icon>cart</mat-icon> -->
+        <h2 class="widget-number">1500</h2>
+        <mat-icon>paid</mat-icon>
       </mat-card-content>
       <mat-card-footer>
         <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
@@ -34,14 +34,14 @@
   </mat-grid-tile>
 
   <!-- Credits Widget -->
-  <mat-grid-tile colspan="1" rowspan="1">
+  <mat-grid-tile colspan="1" class="tile-widget">
     <mat-card class="widget-card">
       <mat-card-header>
         <mat-card-title>Credits Widget</mat-card-title>
       </mat-card-header>
       <mat-card-content class="mat-card-content-widgets">
-        <h2>1500</h2>
-        <!-- <mat-icon>cart</mat-icon> -->
+        <h2 class="widget-number">1500</h2>
+        <mat-icon>account_balance</mat-icon>
       </mat-card-content>
       <mat-card-footer>
         <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
@@ -51,14 +51,14 @@
   </mat-grid-tile>
 
   <!-- Cash on Hand Widget -->
-  <mat-grid-tile colspan="1" rowspan="1">
+  <mat-grid-tile colspan="1" class="tile-widget">
     <mat-card class="widget-card">
       <mat-card-header>
         <mat-card-title>Cash on Hand Widget</mat-card-title>
       </mat-card-header>
       <mat-card-content class="mat-card-content-widgets">
-        <h2>1500</h2>
-        <!-- <mat-icon>cart</mat-icon> -->
+        <h2 class="widget-number">1500</h2>
+        <mat-icon>payments</mat-icon>
       </mat-card-content>
       <mat-card-footer>
         <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
@@ -68,7 +68,7 @@
   </mat-grid-tile>
 
   <!-- Sales Graph -->
-  <mat-grid-tile colspan="4" rowspan="2">
+  <mat-grid-tile colspan="4" rowspan="2" class="tile-widget2">
     <mat-card class="widget-card">
       <mat-card-header>
         <mat-card-title>Sales Graph</mat-card-title>
@@ -83,7 +83,7 @@
   </mat-grid-tile>
 
   <!-- Credits Table -->
-  <mat-grid-tile colspan="4" rowspan="2">
+  <mat-grid-tile colspan="4" rowspan="2" class="tile-widget3">
     <mat-card class="widget-card">
       <mat-card-header>
         <mat-card-title>Customers with Credits</mat-card-title>

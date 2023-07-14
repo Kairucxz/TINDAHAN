@@ -8,7 +8,7 @@ export class SharedService {
   private selectedSource = new Subject<string>();
   selected$ = this.selectedSource.asObservable();
 
-  private drawerStateSource = new BehaviorSubject<boolean>(false);
+  private drawerStateSource = new BehaviorSubject<boolean>(true);
   drawerState$ = this.drawerStateSource.asObservable();
 
   setSelected(selected: string) {

@@ -1,60 +1,105 @@
-.mat-grid-list {
-    margin: 20px;
-    border-radius: 10px;
+mat-grid-list {
+  margin: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  height: 100%;
 }
 
 .widget-card {
-    padding: 10px;
-    height: 97.5%;
-    width: 90%;
-    border-radius: 15px;
-    justify-content: space-between;
-  }
+  padding: 10px;
+  height: 97.5%;
+  width: 90%;
+  border-radius: 15px;
+  justify-content: space-between;
+}
 
-  .graphContainer canvas{
-    height: 90%;
-  }
+.graphContainer, canvas{
+  height: 100% !important;
+  width: 100% !important;
+}
 
-  .table-header{
-    background-color: #4682B4 !important;
-      color: #fff;
-      font-size: 17px;
-      font-family: Inria Serif;
-      word-wrap: break-word;
-      
-  }
-
-  .table-cell-font {
-    font-size: 15px;
+.table-header{
+  background-color: #4682B4 !important;
+    color: #fff;
+    font-size: 17px;
     font-family: Inria Serif;
-   
-  }
-  .table-cell-center {
-    text-align: center;
-  }
+    word-wrap: break-word;
+    
+}
 
-  .tableContainer {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+.table-cell-font {
+  font-size: 15px;
+  font-family: Inria Serif;
   
-  .tableWrapper {
-    flex: 1;
-    overflow: auto;
+}
+.table-cell-center {
+  text-align: center;
+}
 
-  }
+.tableContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-  table {
-    width: 90% !important;
-    height: 90% !important;
-  }
+.tableWrapper {
+  flex: 1;
+  overflow: auto;
+}
 
-  mat-card-content {
-    height: 90%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-  }
-  
+table {
+  width: 90% !important;
+  height: 90% !important;
+}
+
+mat-card-content {
+  height: 90% !important;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+}
+
+.mat-card-content-widgets {
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.tile-widget {
+  height: 200px !important;
+  width: 25% !important;
+}
+
+.tile-widget2 {
+  top: 250px !important;
+  height: 30% !important;
+} 
+
+.tile-widget3 {
+  top: 1075px !important;
+} 
+
+.widget-number {
+  margin: 0;
+  font-size: 40px;
+}
+
+mat-icon {
+  height: 45px;
+  width: 45px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.5;
+  border-radius: 25px;
+  background-color: #4682B4;
+  color: #fff;
+}
+
+mat-card-footer {
+  padding: 16px 16px 0;
+  display: inherit;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 75px;
+}

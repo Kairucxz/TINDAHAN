@@ -9,6 +9,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   exports: [
@@ -20,7 +24,11 @@ import { MatIconModule } from '@angular/material/icon';
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressBarModule,
+    MatGridListModule,
+    MatPaginatorModule,
+    MatTableModule
   ]
 })
 export class AppMaterialModule {}
