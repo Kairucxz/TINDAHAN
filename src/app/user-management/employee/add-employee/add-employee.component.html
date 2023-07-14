@@ -1,102 +1,75 @@
-<div class="registrationContainer">
-  <div class="titleContainer">
-    <div class="titleText">Register New Employee</div>
+<h1 mat-dialog-title>Create Employee Account</h1>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input placeholder="Email" matInput formControlName="email"/>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <mat-label>Enter your password</mat-label>
+      <input formControlName="password" placeholder="password" matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    &nbsp;
+    <mat-radio-group formControlName="roles" aria-label="Select an option">
+      <mat-radio-button value="INVENTORY_CLERK">INVENTORY CLERK</mat-radio-button>
+      <mat-radio-button value="CASHIER">CASHIER</mat-radio-button>
+    </mat-radio-group>
+    <br>
+    Employee Details
+    <hr>
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input placeholder="First Name" matInput formControlName="firstName"/>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input placeholder="Last Name" matInput formControlName="lastName"/>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field class="dateOfBirth">
+      <mat-label>Date of Birth</mat-label>
+      <input placeholder="Date of Birth" formControlName="dateOfBirth" matInput [matDatepicker]="datepicker">
+      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-radio-group formControlName="gender" aria-label="Select an option">
+      <mat-radio-button value="MALE">Male</mat-radio-button>
+      <mat-radio-button value="FEMALE">Female</mat-radio-button>
+    </mat-radio-group>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field>
+      <mat-label>phone</mat-label>
+      <input placeholder="phone" matInput formControlName="phone"/>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field class="full-width-input">
+      <mat-label>Address</mat-label>
+      <input placeholder="address" matInput formControlName="address"/>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field class="full-width-input">
+      <mat-label>Zip Code</mat-label>
+      <input placeholder="Zip Code" matInput formControlName="zipCode"/>
+    </mat-form-field>
   </div>
-  <div class="border">
-    <div class="formContainer">
-      <form #employeeForm="ngForm">
-      <div class="firstName">First name:</div>
-      <div class="inputField">
-        <input
-          type="text"
-          placeholder="Enter first name"
-          name="firstName"
-          #firstName="ngModel"
-          [(ngModel)]="newEmployee.firstName"
-          [ngClass]="{'error': firstName.touched && !firstName.value}"
-        />
-        <em *ngIf="firstName.touched && !firstName.value">
-          Enter your first name
-        </em>
-      </div>
-      <div class="lastName">Last name</div>
-      <div class="inputField">
-        <input
-          type="text"
-          placeholder="Enter last name"
-          name="lastName"
-          #lastName="ngModel"
-          [(ngModel)]="newEmployee.lastName"
-          [ngClass]="{'error': lastName.touched && !lastName.value}"
-        />
-        <em *ngIf="lastName.touched && !lastName.value">
-          Enter your last name
-        </em>
-      </div>
-      <div class="address">Address:</div>
-      <div class="inputField">
-        <input
-          type="text"
-          placeholder="Enter address"
-          name="address"
-          #address="ngModel"
-          [(ngModel)]="newEmployee.address"
-          [ngClass]="{'error': address.touched && !address.value}"
-        />
-        <em *ngIf="address.touched && !address.value">
-          Enter your address
-        </em>
-      </div>
-      <div class="username">Username:</div>
-      <div class="inputField">
-        <input
-          type="text"
-          placeholder="Enter username"
-          name="username"
-          #username="ngModel"
-          [(ngModel)]="newEmployee.username"
-          [ngClass]="{'error': username.touched && !username.value}"
-        />
-        <em *ngIf="username.touched && !username.value">
-          Enter your username
-        </em>
-      </div>
-      <div class="password">Password:</div>
-      <div class="inputField">
-        <input
-          type="text"
-          placeholder="Enter password"
-          name="password"
-          #password="ngModel"
-          [(ngModel)]="newEmployee.password"
-          [ngClass]="{'error': password.touched && !password.value}"
-        />
-        <em *ngIf="password.touched && !password.value">
-          Enter your password
-        </em>
-      </div>
-      <div class="userType">Role:</div>
-      <div class="selectContainer">
-        <select
-          name="userType"
-          #userType="ngModel"
-          [(ngModel)]="newEmployee.userType"
-          class="selectField"
-          [ngClass]="{'error': userType.value == 'USER'}"
-        >
-          <option value="CASHIER" class="cashier">Cashier</option>
-          <option value="INVENTORY_CLERK" class="inventoryClerk">
-            Inventory Clerk
-          </option>
-        </select>
-        <em *ngIf="userType.value == 'USER'">
-          Enter your user type
-        </em>
-      </div>
-      </form>
-    </div>
-    <div class="buttonContainer">
-      <button type="submit" [disabled]="employeeForm.form.invalid" (click)="saveNewEmployee()">Register</button>
-    </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      cdkFocusInitial
+    >
+      Save
+    </button>
   </div>
-</div>
+</form>
+
+

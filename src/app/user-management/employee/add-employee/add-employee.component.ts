@@ -1,9 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { AbstractControl, FormControl } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { EmployeeModel } from 'src/app/model/EmployeeModel';
-import { EmployeeService } from 'src/app/service/employee/employee.service';
-
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {EmployeeService} from 'src/app/service/employee/employee.service';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import * as alertifyjs from "alertifyjs";
+import {EmployeeModel} from "../../../model/EmployeeModel";
+import {UserModel} from "../../../model/UserModel";
 
 
 @Component({
@@ -12,46 +13,57 @@ import { EmployeeService } from 'src/app/service/employee/employee.service';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
-
-  newEmployee: EmployeeModel = {
-    firstName: '',
-    lastName: '',
-    address: '',
-    username: '',
-    password: '',
-    userType: 'USER', 
-  };
+  userForm: FormGroup;
+  hide = true;
 
   constructor(
     public dialogRef: MatDialogRef<AddEmployeeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private employeeService: EmployeeService
-  ) {}
+    private employeeService: EmployeeService,
+    private formBuilder: FormBuilder
+  ) {
+    this.userForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      roles: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      gender: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      phone: ['', Validators.required],
+      address: ['', Validators.required],
+      zipCode: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {}
 
-  checkIfEmployeeValid(): boolean {
-    return (
-      this.newEmployee.firstName != '' &&
-      this.newEmployee.lastName != '' &&
-      this.newEmployee.address != '' &&
-      this.newEmployee.username != '' &&
-      this.newEmployee.password != '' &&
-      this.newEmployee.userType != 'USER'
-    )
-  }
-
-  saveNewEmployee(): void {
-    if (this.checkIfEmployeeValid()) {
-      this.employeeService.createEmployee(this.newEmployee).subscribe(
-        (response: EmployeeModel) => {
-          console.log('New employee created:', response);
-          this.dialogRef.close();
-        },
-        (error: any) => {
-          console.error('Error creating employee:', error);
+  onSubmit(): void {
+    if (!this.userForm.invalid) {
+      const user: UserModel = {
+        email: this.userForm.get('email')?.value,
+        password: this.userForm.get('password')?.value,
+        role: this.userForm.get('roles')?.value,
+        employee: {
+          firstName: this.userForm.get('firstName')?.value,
+          lastName: this.userForm.get('lastName')?.value,
+          gender: this.userForm.get('gender')?.value,
+          dateOfBirth: this.userForm.get('dateOfBirth')?.value,
+          phone: this.userForm.get('phone')?.value,
+          address: this.userForm.get('address')?.value,
+          zipCode: this.userForm.get('zipCode')?.value,
         }
-      );
+      }
+      console.log(user);
+      this.employeeService.register(user).subscribe({
+        next: (data: any) => {
+          alertifyjs.success('User Account Successfully Created');
+          this.data = data;
+        },
+        error: (e: any) => console.error(e)
+      });
+
     }
+    this.dialogRef.close();
   }
 }

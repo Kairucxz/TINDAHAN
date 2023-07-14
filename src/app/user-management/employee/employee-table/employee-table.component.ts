@@ -10,7 +10,7 @@ import { EmployeeService } from 'src/app/service/employee/employee.service';
   styleUrls: ['./employee-table.component.css']
 })
 export class EmployeeTableComponent implements AfterViewInit {
-  displayedColumns: string[] = ['employeeId', 'firstName', 'lastName', 'userType', 'action'];
+  displayedColumns: string[] = ['id', 'fullName','user', 'roles', 'action'];
   dataSource = new MatTableDataSource<EmployeeModel>();
 
   employees?: EmployeeModel[];
@@ -30,7 +30,7 @@ export class EmployeeTableComponent implements AfterViewInit {
       next: (data: EmployeeModel[]) => {
         this.employees = data;
         this.dataSource.data = this.employees;
-        console.log(data);
+        console.log(this.employees);
       },
       error: (e: any) => console.error(e)
     });

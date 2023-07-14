@@ -1,3 +1,5 @@
+import {UserModel} from "./UserModel";
+
 export class ProductModel{
     id?: any;
     prodName?: string;
@@ -6,4 +8,5 @@ export class ProductModel{
     quantity?: any;
     category?: any;
     action?: any;
+
 }

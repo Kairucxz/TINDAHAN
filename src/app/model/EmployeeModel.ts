@@ -1,10 +1,13 @@
-export class EmployeeModel{
-    id?: any;
-    firstName?: string;
-    lastName?: string;
-    address?: string;
-    username?: string;
-    password?: string;
-    userType?: string;
-    action?: any;
+import {UserModel} from "./UserModel";
+
+export class EmployeeModel {
+  id?: any;
+  firstName?: string;
+  lastName?: string;
+  gender?: string;
+  dateOfBirth?: string;
+  phone?: string;
+  address?: string;
+  zipCode?: string;
+  user?: UserModel;
 }

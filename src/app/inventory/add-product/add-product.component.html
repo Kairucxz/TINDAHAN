@@ -1,50 +1,47 @@
-<div class="registrationContainer">
-  <div class="titleContainer">
-    <h1>New Product</h1>
+<h1 mat-dialog-title>Add new Product</h1>
+
+<form [formGroup]="form" (ngSubmit)="addProduct()">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Product Name</mat-label>
+      <input placeholder="Product name" matInput formControlName="prodName"/>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <mat-label>Product Description</mat-label>
+      <input placeholder="Product Description" matInput formControlName="prodDesc"/>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let item of category" [value]="item.id">
+          {{ item.categoryName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <mat-label>Unit Price</mat-label>
+      <input placeholder="Unit Price" matInput formControlName="unitPrice"/>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width-input">
+      <mat-label>Quantity</mat-label>
+      <input placeholder="Quantity" matInput formControlName="quantity"/>
+    </mat-form-field>
   </div>
-  <div class="border">
-    <div class="formContainer">
-      <form [formGroup]="form" (ngSubmit)="addProduct()">
-        <div mat-dialog-content>
-          <mat-form-field class="full-width-input">
-            <mat-label>Product Name</mat-label>
-            <input placeholder="Product name" matInput formControlName="prodName" />
-          </mat-form-field>
-          <mat-form-field class="full-width-input">
-            <mat-label>Product Description</mat-label>
-            <input placeholder="Product Description" matInput formControlName="prodDesc" />
-          </mat-form-field>
-          <br>
-          <mat-form-field class="full-width-input">
-            <mat-label>Category</mat-label>
-            <mat-select formControlName="category">
-              <mat-option *ngFor="let item of category" [value]="item.id">
-                {{ item.categoryName }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field class="full-width-input">
-            <mat-label>Unit Price</mat-label>
-            <input placeholder="Unit Price" matInput formControlName="unitPrice" />
-          </mat-form-field>
-          <br>
-          <mat-form-field class="full-width-input">
-            <mat-label>Quantity</mat-label>
-            <input placeholder="Quantity" matInput formControlName="quantity" />
-          </mat-form-field>
-        </div>
-        <div mat-dialog-actions>
-          <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-          <button
-            type="submit"
-            mat-raised-button
-            color="primary"
-            cdkFocusInitial
-          >
-            Save
-          </button>
-        </div>
-      </form>
-    </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      cdkFocusInitial
+    >
+      Save
+    </button>
   </div>
-</div>
+</form>
+
+
