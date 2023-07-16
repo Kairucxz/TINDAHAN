@@ -1,32 +1,114 @@
 <div class="registrationContainer">
   <div class="titleContainer">
-    <div class="titleText">Register New Customer</div>
+    <div class="titleText">Customer Details</div>
   </div>
-  <div class="border">
-    <div class="formContainer">
-      <div class="customerIdContainer">
-        <div class="customerId">Customer ID:</div>
-        <div class="textField">C0001</div>
-      </div>
-      <div class="customerName">Customer Name:</div>
-      <div class="inputField">
-        <input type="text" placeholder="Enter customer name" />
-      </div>
-      <div class="address">Address:</div>
-      <div class="inputField">
-        <input type="text" placeholder="Enter address" />
-      </div>
-      <div class="contact">Phone Number:</div>
-      <div class="inputField">
-        <input type="text" placeholder="Enter phone number" />
-      </div>
-      <div class="contact">Credit Amount:</div>
-      <div class="inputField">
-        <input type="text" placeholder="Enter credit amount" />
-      </div>
-    </div>
-    <div class="buttonContainer">
-      <button>Register</button>
-    </div>
+
+  <div class="formContainer">
+    <mat-form-field appearance="outline">
+      <mat-label>Customer ID:</mat-label>
+      <input matInput [value]="data.customerId" [disabled]="true" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>First Name:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.firstName"
+        placeholder="Enter first name"
+      />
+      <mat-error *ngIf="checkInputError('firstName')" class="error-message">
+        First name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.contact"
+        placeholder="Enter phone number"
+        pattern="^[0-9]{10}$"
+      />
+      <mat-error *ngIf="checkInputError('contact')" class="error-message">
+        Contact is required and should be a 10-digit number
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.lastName"
+        placeholder="Enter last name"
+      />
+      <mat-error *ngIf="checkInputError('lastName')" class="error-message">
+        Last name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Age:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.age"
+        placeholder="Enter age"
+        required
+        type="number"
+        min="18"
+      />
+      <mat-error *ngIf="checkInputError('age')" class="error-message">
+        Age is required and should be at least 18
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Address:</mat-label>
+      <input matInput [(ngModel)]="data.address" placeholder="Enter address" />
+      <mat-error *ngIf="checkInputError('address')" class="error-message">
+        Address is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Credit Amount:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.creditedAmount"
+        placeholder="Enter credit amount"
+        [disabled]="true"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Created Date:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.createdDate"
+        placeholder="Enter created date"
+        [disabled]="true"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Due Date:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.dueDate"
+        placeholder="Enter due date"
+        [disabled]="true"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Status:</mat-label>
+      <mat-select [(ngModel)]="data.status">
+        <mat-option value="true">Paid</mat-option>
+        <mat-option value="false">Not Paid</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="buttonContainer">
+    <button (click)="updateCustomer(data.customerId)">Update</button>
   </div>
 </div>

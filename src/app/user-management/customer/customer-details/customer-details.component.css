@@ -1,0 +1,40 @@
+.registrationContainer {
+  width: 500px;
+  height: 600px;
+}
+
+.titleContainer {
+  background-color: #4682b4;
+  padding: 20px;
+}
+
+.titleText {
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.border {
+  padding: 20px;
+}
+
+.formContainer {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-gap: 10px;
+}
+
+.formContainer > div {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.inputField {
+  padding: 5px;
+  border: 1px solid #dddddd;
+  background-color: #f0f8ff;
+}
+.inputField[disabled] {
+  opacity: 1;
+}

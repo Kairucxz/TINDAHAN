@@ -1,0 +1,99 @@
+<h2 mat-dialog-title class="dialog-title">Add Customer</h2>
+<div mat-dialog-content class="dialog-content">
+  <form [formGroup]="customerForm" class="form">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>First Name</mat-label>
+      <input
+        matInput
+        formControlName="firstName"
+        required
+        class="input-field"
+      />
+      <mat-error *ngIf="checkInputError('firstName')" class="error-message">
+        First name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" required class="input-field" />
+      <mat-error *ngIf="checkInputError('lastName')" class="error-message">
+        Last name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Address</mat-label>
+      <textarea
+        matInput
+        formControlName="address"
+        required
+        class="input-field"
+      ></textarea>
+      <mat-error *ngIf="checkInputError('address')" class="error-message">
+        Address is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Contact</mat-label>
+      <input
+        matInput
+        formControlName="contact"
+        required
+        pattern="^[0-9]{10}$"
+        class="input-field"
+      />
+      <mat-error *ngIf="checkInputError('contact')" class="error-message">
+        Contact is required and should be a 10-digit number
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Age</mat-label>
+      <input
+        matInput
+        formControlName="age"
+        required
+        type="number"
+        min="18"
+        class="input-field"
+      />
+      <mat-error *ngIf="checkInputError('age')" class="error-message">
+        Age is required and should be at least 18
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Credited Amount</mat-label>
+      <input
+        matInput
+        formControlName="creditedAmount"
+        required
+        type="number"
+        min="0"
+        class="input-field"
+      />
+      <mat-error
+        *ngIf="checkInputError('creditedAmount')"
+        class="error-message"
+      >
+        Credited amount is required and should be a non-negative number
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button (click)="dialogRef.close()" class="cancel-button">
+    Cancel
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="saveNewCustomer()"
+    [disabled]="customerForm.invalid"
+    class="save-button"
+  >
+    Save
+  </button>
+</div>

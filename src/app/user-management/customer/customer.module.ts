@@ -2,20 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomerLayoutComponent } from './customer-layout/customer-layout.component';
 import { CustomerTableComponent } from './customer-table/customer-table.component';
-import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AppMaterialModule } from 'src/app/app-material.module';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     CustomerLayoutComponent,
     CustomerTableComponent,
-    CustomerRegistrationComponent,
     SettingsComponent,
+    AddCustomerComponent,
+    CustomerDetailsComponent,
+    DeleteCustomerComponent,
   ],
-  exports: [
-    CustomerRegistrationComponent
-  ],
-  imports: [CommonModule, AppMaterialModule],
+  exports: [AddCustomerComponent],
+  imports: [CommonModule, AppMaterialModule, FormsModule],
 })
 export class CustomerModule {}

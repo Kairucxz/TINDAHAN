@@ -14,11 +14,4 @@ export class CustomerLayoutComponent {
 
   constructor(private dialog: MatDialog) {}
 
-  openCutomerRegistration(): void {
-    this.dialog.open(this.addCustomerModal, {
-      
-      disableClose: false, 
-    });
-  
-  }
 }
