@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {CategoryService} from "../../service/category/category.service";
+import * as alertifyjs from "alertifyjs"
 
 @Component({
   selector: 'app-category',
@@ -9,7 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CategoryComponent implements OnInit {
   addCategoryForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private categoryService: CategoryService
+  ) {}
 
   ngOnInit(): void {
     this.buildAddCategoryForm();
@@ -18,15 +23,19 @@ export class CategoryComponent implements OnInit {
   buildAddCategoryForm(): void {
     this.addCategoryForm = this.formBuilder.group({
       categoryName: ['', Validators.required],
-      description: ['', Validators.required],
+      categoryDesc: ['', Validators.required],
     });
   }
 
   addNewCategoryForm(): void {
     if (this.addCategoryForm.valid) {
-      console.log('New category added:', this.addCategoryForm.value);
-
-      this.addCategoryForm.reset();
+      this.categoryService.save(this.addCategoryForm.value).subscribe({
+        next: (data: any) => {
+          alertifyjs.success('Category Added Successfully');
+          window.location.reload();
+        },
+        error: (e: any) => console.error(e)
+      });
     }
   }
 }

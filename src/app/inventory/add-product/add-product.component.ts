@@ -50,6 +50,7 @@ export class AddProductComponent implements OnInit {
         next: (data: any) => {
           this.data = data;
           alertify.success('Product Added Successfully');
+          window.location.reload();
         },
         error: (e: any) => console.error(e)
       });

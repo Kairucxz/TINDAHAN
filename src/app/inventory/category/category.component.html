@@ -12,8 +12,8 @@
     <br />
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
-      <textarea matInput formControlName="description" required></textarea>
-      <mat-error *ngIf="addCategoryForm.get('description')?.invalid">
+      <textarea matInput formControlName="categoryDesc" required></textarea>
+      <mat-error *ngIf="addCategoryForm.get('categoryDesc')?.invalid">
         Description is required
       </mat-error>
     </mat-form-field>
