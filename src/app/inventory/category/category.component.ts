@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {CategoryService} from "../../service/category/category.service";
-import * as alertifyjs from "alertifyjs"
+import { CategoryService } from '../../service/category/category.service';
+import * as alertifyjs from 'alertifyjs';
 
 @Component({
   selector: 'app-category',
@@ -34,7 +34,7 @@ export class CategoryComponent implements OnInit {
           alertifyjs.success('Category Added Successfully');
           window.location.reload();
         },
-        error: (e: any) => console.error(e)
+        error: (e: any) => console.error(e),
       });
     }
   }

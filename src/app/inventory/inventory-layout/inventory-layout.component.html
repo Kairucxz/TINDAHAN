@@ -5,20 +5,29 @@
       <button mat-raised-button color="primary" (click)="addNewProductForm()">
         Add Product
       </button>
-      <button mat-raised-button color="accent" (click)="addNewCategoryForm()">
-        Add Category
-      </button>
     </div>
   </div>
   <div class="tableContainer">
     <app-inventory-table></app-inventory-table>
   </div>
+
+  <div class="titleContainer">
+    <div class="titleText">List of Categories</div>
+    <div class="buttonContainer">
+      <button mat-raised-button color="primary" (click)="addNewCategoryForm()">
+        Add Category
+      </button>
+    </div>
+  </div>
+  <div class="tableContainer">
+    <app-category-table></app-category-table>
+  </div>
+
+  <ng-template #addNewProductModal>
+    <app-add-product></app-add-product>
+  </ng-template>
+
+  <ng-template #addNewCategoryModal>
+    <app-category></app-category>
+  </ng-template>
 </div>
-
-<ng-template #addNewProductModal>
-  <app-add-product></app-add-product>
-</ng-template>
-
-<ng-template #addNewCategoryModal>
-  <app-category></app-category>
-</ng-template>

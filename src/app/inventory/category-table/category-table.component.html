@@ -1,66 +1,48 @@
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
     <!-- Position Column -->
-    <ng-container matColumnDef="prodName">
+    <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef class="table-header">
-        Product Name
+        Category Id
       </th>
       <td mat-cell *matCellDef="let element" class="table-cell-font">
-        {{ element.prodName }}
+        {{ element.id }}
       </td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="quantity">
+    <ng-container matColumnDef="categoryName">
       <th
         mat-header-cell
         *matHeaderCellDef
         class="table-header table-cell-center"
       >
-        Quantity
+        Category Name
       </th>
       <td
         mat-cell
         *matCellDef="let element"
         class="table-cell-font table-cell-center"
       >
-        {{ element.quantity }}
+        {{ element.categoryName }}
       </td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="unitPrice">
+    <ng-container matColumnDef="categoryDesc">
       <th
         mat-header-cell
         *matHeaderCellDef
         class="table-header table-cell-center"
       >
-        Unit Price
+        Category Description
       </th>
       <td
         mat-cell
         *matCellDef="let element"
         class="table-cell-font table-cell-center"
       >
-        {{ element.unitPrice }}
-      </td>
-    </ng-container>
-
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="prodDesc">
-      <th
-        mat-header-cell
-        *matHeaderCellDef
-        class="table-header table-cell-center"
-      >
-        Product Description
-      </th>
-      <td
-        mat-cell
-        *matCellDef="let element"
-        class="table-cell-font table-cell-center"
-      >
-        {{ element.prodDesc }}
+        {{ element.categoryDesc }}
       </td>
     </ng-container>
 
@@ -82,17 +64,17 @@
 
         <button
           class="material-symbols-outlined"
-          (click)="showUpdateProductForm()"
+          (click)="showUpdateCategoryForm()"
         >
           edit_note
         </button>
         <button
           class="material-symbols-outlined table-button"
-          (click)="showDetailsProductForm()"
+          (click)="showDetailsCategoryForm()"
         >
           visibility
         </button>
-        <button class="material-symbols-outlined table-button">tune</button>
+        <button class="material-symbols-outlined table-button">delete</button>
       </td>
     </ng-container>
 
@@ -107,9 +89,9 @@
   >
   </mat-paginator>
 </div>
-<ng-template #updateProductForm>
+<!-- <ng-template #updateProductForm>
   <app-update-product></app-update-product>
 </ng-template>
 <ng-template #detailsProductForm>
   <app-product-details></app-product-details>
-</ng-template>
+</ng-template> -->

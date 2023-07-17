@@ -7,6 +7,7 @@ import { AppMaterialModule } from '../app-material.module';
 import { CategoryComponent } from './category/category.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CategoryTableComponent } from './category-table/category-table.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     CategoryComponent,
     UpdateProductComponent,
     ProductDetailsComponent,
+    CategoryTableComponent,
   ],
   imports: [CommonModule, AppMaterialModule],
 })
