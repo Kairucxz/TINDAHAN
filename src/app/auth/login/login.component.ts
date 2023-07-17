@@ -45,8 +45,6 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log(this.form.value);
-      // this.authService.login(this.form.value);
       this.authentication.authenticate(this.form.value);
     }
       this.formSubmitAttempt = true;

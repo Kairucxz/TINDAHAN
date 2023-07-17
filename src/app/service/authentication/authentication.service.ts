@@ -3,6 +3,8 @@ import {ActivatedRoute, Router, RouterStateSnapshot} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationModel} from "../../model/AuthenticationModel";
 import {AuthenticationStateService} from "./authentication-state.service";
+import * as alertify from 'alertifyjs'
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,7 @@ export class AuthenticationService {
 
   authenticate(user: AuthenticationModel) {
     if (user.email !== '' && user.password !== '') {
-      this.httpClient.post<any>(this.apiURL, user, {headers: {'Authorization': 'Bearer '}}).subscribe((response) => {
+      this.httpClient.post<any>(this.apiURL, user).subscribe((response) => {
         console.log('response received is ', response);
         user.access_token = response['access_token'];
         user.refresh_token = response['refresh_token'];
@@ -29,6 +31,7 @@ export class AuthenticationService {
         user.role = response['role'];
         this.authenticationStateService.setCurrentUser(user);
         window.location.replace("/dashboard");
+        alertify.success('Welcome ' + user.role);
       });
     }
   }
