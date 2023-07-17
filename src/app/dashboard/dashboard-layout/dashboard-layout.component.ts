@@ -59,8 +59,8 @@ export class DashboardLayoutComponent implements AfterViewInit, OnDestroy, OnIni
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June'],
         datasets: [
-          { label: 'Series A', data: [65, 59, 80, 81, 56, 55], backgroundColor: '#42A5F5' },
-          { label: 'Series B', data: [28, 48, 40, 19, 86, 27], backgroundColor: '#FFA726' },
+          { label: 'Orders', data: [65, 59, 80, 81, 56, 55], backgroundColor: '#42A5F5' },
+          { label: 'Credit', data: [28, 48, 40, 19, 86, 27], backgroundColor: '#FFA726' },
         ],
       },
       options: {

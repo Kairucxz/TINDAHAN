@@ -37,13 +37,12 @@
       <mat-label>Created Date:</mat-label>
       <input
         matInput
-        [(ngModel)]="data.createdOn"
+        [value]="datePipe.transform(data.createdOn, 'fullDate')"
         placeholder="Enter created date"
-        [disabled]="true"
+        disabled
       />
     </mat-form-field>
   </div>
-
   <div class="buttonContainer">
     <button (click)="updateCategory(data.id)">Update</button>
   </div>

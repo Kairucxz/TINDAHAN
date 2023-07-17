@@ -83,6 +83,7 @@ const routes: Routes = [
     ],
     canActivate: [AuthGuardService],
   },
+  { path: '**', redirectTo: '/not-found' }, // Wildcard route for "Page Not Found"
 ];
 
 @NgModule({

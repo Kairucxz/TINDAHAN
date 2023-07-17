@@ -1,0 +1,62 @@
+<div class="registrationContainer">
+  <div class="titleContainer">
+    <div class="titleText">Employee Details</div>
+  </div>
+  <div class="border">
+    <div class="formContainer">
+      <mat-form-field appearance="outline">
+        <mat-label>Employee ID:</mat-label>
+        <input matInput [value]="employee.id" [readonly]="true" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>First Name:</mat-label>
+        <input matInput [value]="employee.firstName" [readonly]="true" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number:</mat-label>
+        <input matInput [value]="employee.phone" [readonly]="true" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name:</mat-label>
+        <input matInput [value]="employee.lastName" [readonly]="true" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Zip Code:</mat-label>
+        <input matInput [value]="employee.zipCode" [readonly]="true" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Address:</mat-label>
+        <input matInput [value]="employee.address" [readonly]="true" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Birthdate:</mat-label>
+        <input matInput [value]="employee.dateOfBirth" [readonly]="true" />
+      </mat-form-field>
+
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Email:</mat-label>
+        <input matInput [value]="employee.user?.email" [readonly]="true" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Role:</mat-label>
+        <input matInput [value]="employee.user?.role" [readonly]="true" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password:</mat-label>
+        <input matInput type="password" [value]="employee.user?.password" [readonly]="true" />
+      </mat-form-field> -->
+    </div>
+
+    <div class="buttonContainer">
+      <button mat-raised-button color="primary" (click)="closeDialog()">Close</button>
+    </div>
+  </div>
+</div>

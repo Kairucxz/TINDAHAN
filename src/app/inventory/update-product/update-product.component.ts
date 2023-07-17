@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ProductModel } from 'src/app/model/ProductModel';
 import { CategoryService } from 'src/app/service/category/category.service';
 import { InventoryService } from 'src/app/service/inventory/inventory.service';
-
+import * as alertify from 'alertifyjs';
 @Component({
   selector: 'app-update-product',
   templateUrl: './update-product.component.html',
@@ -55,7 +55,9 @@ export class UpdateProductComponent implements OnInit {
     if (this.productForm.valid && this.isFormModified()) {
       this.inventoryService.updateProduct(id, this.product).subscribe(
         (response: ProductModel) => {
-          console.log('Product updated:', response);
+          alertify.set('notifier', 'position', 'top-right');
+          alertify.success('Product updated successfully');
+          window.location.reload();
           this.dialogRef.close();
         },
         (error: any) => {

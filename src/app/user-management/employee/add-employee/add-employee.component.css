@@ -1,3 +1,11 @@
 .dateOfBirth{
   width: 435px;
 }
+
+.dialog-title {
+  font-size: 24px;
+  margin-bottom: 1px;
+  background-color: #4682b4;
+  text-align: center;
+  color: #fff;
+}
