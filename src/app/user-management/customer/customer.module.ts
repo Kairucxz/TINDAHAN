@@ -7,7 +7,6 @@ import { AppMaterialModule } from 'src/app/app-material.module';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +18,6 @@ import { FormsModule } from '@angular/forms';
     DeleteCustomerComponent,
   ],
   exports: [AddCustomerComponent],
-  imports: [CommonModule, AppMaterialModule, FormsModule],
+  imports: [CommonModule, AppMaterialModule],
 })
 export class CustomerModule {}
