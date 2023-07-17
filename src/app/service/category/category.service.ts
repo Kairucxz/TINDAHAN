@@ -19,4 +19,6 @@ export class CategoryService {
   save(category: CategoryModel): Observable<CategoryModel> {
     return this.httpClient.post<CategoryModel>(this.apiURL + 'create', category,{headers: {'Authorization': 'Bearer '+ this.authState.getCurrentUser().access_token}});
   }
+
+
 }

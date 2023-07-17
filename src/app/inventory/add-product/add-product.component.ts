@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, OnInit, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {InventoryService} from "../../service/inventory/inventory.service";
 import {CategoryService} from "../../service/category/category.service";
 import * as alertify from 'alertifyjs'
+import {ProductModel} from "../../model/ProductModel";
 
 @Component({
   selector: 'app-add-product',
@@ -11,42 +12,55 @@ import * as alertify from 'alertifyjs'
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-  form:FormGroup;
+  productForm!: FormGroup;
   category: any;
+
   constructor(
     public dialogRef: MatDialogRef<AddProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private categoryService: CategoryService,
     private inventoryService: InventoryService,
-    private fb: FormBuilder
+    private formBuilder: FormBuilder
   ) {
-    this.form = this.fb.group({
-      prodName: new FormControl('', [Validators.required]),
-      prodDesc: new FormControl('', [Validators.required]),
-      unitPrice: new FormControl('', [Validators.required]),
-      quantity: new FormControl('', [Validators.required]),
-      category: new FormControl('', [Validators.required])
-    });
   }
+
+
   ngOnInit(): void {
     this.loadCategory();
+    this.buildProductForm();
+  }
+
+  buildProductForm(): void {
+    this.productForm = this.formBuilder.group({
+      prodName: ['', Validators.required],
+      prodDesc: ['', Validators.required],
+      unitPrice: ['', Validators.compose([Validators.required, Validators.min(0)])],
+      quantity: ['', Validators.compose([Validators.required, Validators.min(0)])],
+      category: ['', Validators.required]
+    });
+  }
+
+  checkInputError(controlName: string): boolean {
+    const control = this.productForm.controls[controlName];
+    return control?.invalid && (control.dirty || control.touched);
   }
 
   loadCategory() {
-   this.categoryService.getAllCategory().subscribe({
+    this.categoryService.getAllCategory().subscribe({
       next: (data: any) => {
         this.category = data;
+        console.log(this.category);
       },
-     error: (e: any) => console.error(e)
-   });
+      error: (e: any) => console.error(e)
+    });
   }
 
   addProduct(): void {
-    this.form.value['category'] = {
-      id: this.form.value['category']
+    this.productForm.value['category'] = {
+      id: this.productForm.value['category']
     }
-    if (!this.form.invalid) {
-      this.inventoryService.createProduct(this.form.value).subscribe({
+    if (this.productForm.valid) {
+      this.inventoryService.createProduct(this.productForm.value).subscribe({
         next: (data: any) => {
           this.data = data;
           alertify.success('Product Added Successfully');
@@ -55,6 +69,6 @@ export class AddProductComponent implements OnInit {
         error: (e: any) => console.error(e)
       });
     }
-      this.dialogRef.close();
+    this.dialogRef.close();
   }
 }

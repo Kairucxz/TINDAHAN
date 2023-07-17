@@ -8,5 +8,4 @@ export class ProductModel{
     quantity?: any;
     category?: any;
     action?: any;
-
 }

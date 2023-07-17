@@ -1,47 +1,81 @@
 <h1 mat-dialog-title>Add new Product</h1>
-
-<form [formGroup]="form" (ngSubmit)="addProduct()">
-  <div mat-dialog-content>
-    <mat-form-field appearance="fill">
+<div mat-dialog-content>
+  <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Product Name</mat-label>
-      <input placeholder="Product name" matInput formControlName="prodName"/>
+      <input
+        matInput
+        placeholder="Product name"
+        formControlName="prodName"
+        class="input-field"
+      />
+      <mat-error *ngIf="checkInputError('prodName')" class="error-message">
+        Product name is required
+      </mat-error>
     </mat-form-field>
     &nbsp;
-    <mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Product Description</mat-label>
-      <input placeholder="Product Description" matInput formControlName="prodDesc"/>
+      <input
+        matInput
+        placeholder="Product Description"
+        formControlName="prodDesc"/>
     </mat-form-field>
     <br>
-    <mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Category</mat-label>
       <mat-select formControlName="category">
         <mat-option *ngFor="let item of category" [value]="item.id">
           {{ item.categoryName }}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="checkInputError('category')" class="error-message">
+        Category name is required
+      </mat-error>
     </mat-form-field>
     &nbsp;
-    <mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Unit Price</mat-label>
-      <input placeholder="Unit Price" matInput formControlName="unitPrice"/>
+      <input
+        matInput
+        required
+        type="number"
+        min="0"
+        placeholder="Unit Price"
+        formControlName="unitPrice"
+        class="input-field"
+      />
+      <mat-error *ngIf="checkInputError('unitPrice')" class="error-message">
+        Unit Price name is required
+      </mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field class="full-width-input">
+    <mat-form-field  appearance="outline" class="form-field">
       <mat-label>Quantity</mat-label>
-      <input placeholder="Quantity" matInput formControlName="quantity"/>
+      <input
+        matInput
+        required
+        type="number"
+        min="0"
+        placeholder="Quantity"
+        formControlName="quantity"/>
+      <mat-error *ngIf="checkInputError('quantity')" class="error-message">
+        Quantity name is required
+      </mat-error>
     </mat-form-field>
-  </div>
-  <div mat-dialog-actions>
-    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-    <button
-      type="submit"
-      mat-raised-button
-      color="primary"
-      cdkFocusInitial
-    >
-      Save
-    </button>
-  </div>
-</form>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button
+    type="submit"
+    color="primary"
+    mat-raised-button
+    [disabled]="productForm.invalid"
+    (click)="addProduct()"
+  >
+    Save
+  </button>
+</div>
 
 
