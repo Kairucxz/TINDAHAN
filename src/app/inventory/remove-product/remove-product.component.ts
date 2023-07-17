@@ -19,8 +19,7 @@ export class RemoveProductComponent {
     this.inventoryService.deleteProduct(this.data.prodId).subscribe(
       () => {
         console.log('Product is deleted:', this.data.prodName);
-
-        this.dialogRef.close();
+        window.location.reload();
       },
       (error: any) => {
         console.error('Error deleting Product:', error);
