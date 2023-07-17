@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   private formSubmitAttempt!: boolean;
   apiURL = 'http://localhost:8080/api/v1/auth/authenticate/';
   headers = new Headers();
+  public showPassword: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -51,5 +52,9 @@ export class LoginComponent implements OnInit {
       alertify.set('notifier', 'position', 'top-right');
       alertify.error('Please fill in the form correctly');
     }
+  }
+
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

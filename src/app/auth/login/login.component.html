@@ -15,7 +15,10 @@
                 </mat-error>
               </mat-form-field>
               <mat-form-field class="login-form">
-                <input matInput type="password" placeholder="Password" formControlName="password" required>
+                <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Password" formControlName="password" required>
+                <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                  {{showPassword?'visibility_off':'visibility'}}
+              </mat-icon>
                 <mat-error *ngIf="checkInputError('email')">
                   Please fill up your password
                 </mat-error>
