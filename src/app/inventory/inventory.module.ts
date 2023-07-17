@@ -11,6 +11,7 @@ import { CategoryTableComponent } from './category-table/category-table.componen
 import { UpdateCategoryComponent } from './update-category/update-category.component';
 import { ViewCategoryComponent } from './view-category/view-category.component';
 import { RemoveCategoryComponent } from './remove-category/remove-category.component';
+import { RemoveProductComponent } from './remove-product/remove-product.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RemoveCategoryComponent } from './remove-category/remove-category.compo
     UpdateCategoryComponent,
     ViewCategoryComponent,
     RemoveCategoryComponent,
+    RemoveProductComponent,
   ],
   imports: [CommonModule, AppMaterialModule],
 })

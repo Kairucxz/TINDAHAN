@@ -1,1 +1,66 @@
-<p>update-product works!</p>
+<div class="registrationContainer">
+  <div class="titleContainer">
+    <div class="titleText">Category Details</div>
+  </div>
+
+  <div class="formContainer">
+    <mat-form-field appearance="outline">
+      <mat-label>Product ID:</mat-label>
+      <input matInput [value]="data.prodId" [disabled]="true" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Product Name:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.prodName"
+        placeholder="Enter first name"
+      />
+      <mat-error *ngIf="checkInputError('firstName')" class="error-message">
+        Category name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Product Description:</mat-label>
+      <input matInput [(ngModel)]="data.prodDesc" placeholder="Description" />
+      <mat-error *ngIf="checkInputError('categoryDesc')" class="error-message">
+        Product Description is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Unit Price:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.unitPrice"
+        placeholder="Enter unit price"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Quantity:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.quantity"
+        placeholder="Enter quantity"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="data.category">
+        <mat-option *ngFor="let item of category" [value]="data.category">
+          {{ item.categoryName }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="checkInputError('category')" class="error-message">
+        Category name is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="buttonContainer">
+    <button (click)="updateProduct(data.prodId)">Update</button>
+  </div>
+</div>
