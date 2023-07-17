@@ -28,7 +28,7 @@
       </td>
     </ng-container>
 
-    <!-- Weight Column -->
+    <!-- Description -->
     <ng-container matColumnDef="categoryDesc">
       <th
         mat-header-cell
@@ -46,35 +46,46 @@
       </td>
     </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="action">
+    <!-- Description -->
+    <ng-container matColumnDef="createdDate">
       <th
         mat-header-cell
         *matHeaderCellDef
         class="table-header table-cell-center"
       >
-        Action
+        Creation Date
       </th>
       <td
         mat-cell
         *matCellDef="let element"
         class="table-cell-font table-cell-center"
       >
-        {{ element.action }}
+        {{ element.createdOn | date }}
+      </td>
+    </ng-container>
 
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef class="table-header">Action</th>
+      <td mat-cell *matCellDef="let element" class="table-cell-font">
         <button
           class="material-symbols-outlined"
-          (click)="showUpdateCategoryForm()"
+          (click)="showUpdateCategoryForm(element)"
         >
           edit_note
         </button>
         <button
           class="material-symbols-outlined table-button"
-          (click)="showDetailsCategoryForm()"
+          (click)="showDetailsCategoryForm(element)"
         >
           visibility
         </button>
-        <button class="material-symbols-outlined table-button">delete</button>
+        <button
+          class="material-symbols-outlined table-button"
+          (click)="removeCategoryModal(element)"
+        >
+          delete
+        </button>
       </td>
     </ng-container>
 
@@ -89,9 +100,13 @@
   >
   </mat-paginator>
 </div>
-<!-- <ng-template #updateProductForm>
-  <app-update-product></app-update-product>
+<ng-template #updateCategoryForm>
+  <app-update-category></app-update-category>
 </ng-template>
-<ng-template #detailsProductForm>
-  <app-product-details></app-product-details>
-</ng-template> -->
+<ng-template #detailsCategoryForm>
+  <app-view-category></app-view-category>
+</ng-template>
+
+<ng-template #detailsCategoryForm>
+  <app-view-category></app-view-category>
+</ng-template>

@@ -1,0 +1,23 @@
+<div class="registrationContainer">
+  <div class="titleContainer">
+    <div class="titleText">Category Details</div>
+  </div>
+  <div class="border">
+    <div class="formContainer">
+      <mat-form-field appearance="outline">
+        <mat-label>Creation of Category:</mat-label>
+        <input matInput [value]="category.createdOn" [readonly]="true" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Caetgory Name:</mat-label>
+        <input matInput [value]="category.categoryName" [readonly]="true" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Category Description:</mat-label>
+        <input matInput [value]="category.categoryDesc" [readonly]="true" />
+      </mat-form-field>
+    </div>
+  </div>
+</div>

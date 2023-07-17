@@ -1,0 +1,50 @@
+<div class="registrationContainer">
+  <div class="titleContainer">
+    <div class="titleText">Category Details</div>
+  </div>
+
+  <div class="formContainer">
+    <mat-form-field appearance="outline">
+      <mat-label>Category ID:</mat-label>
+      <input matInput [value]="data.id" [disabled]="true" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Category Name:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.categoryName"
+        placeholder="Enter first name"
+      />
+      <mat-error *ngIf="checkInputError('firstName')" class="error-message">
+        Category name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Category Description:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.categoryDesc"
+        placeholder="Description"
+      />
+      <mat-error *ngIf="checkInputError('categoryDesc')" class="error-message">
+        Category Description is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Created Date:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.createdOn"
+        placeholder="Enter created date"
+        [disabled]="true"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="buttonContainer">
+    <button (click)="updateCategory(data.id)">Update</button>
+  </div>
+</div>

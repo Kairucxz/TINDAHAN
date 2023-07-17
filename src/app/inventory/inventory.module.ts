@@ -8,6 +8,9 @@ import { CategoryComponent } from './category/category.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CategoryTableComponent } from './category-table/category-table.component';
+import { UpdateCategoryComponent } from './update-category/update-category.component';
+import { ViewCategoryComponent } from './view-category/view-category.component';
+import { RemoveCategoryComponent } from './remove-category/remove-category.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { CategoryTableComponent } from './category-table/category-table.componen
     UpdateProductComponent,
     ProductDetailsComponent,
     CategoryTableComponent,
+    UpdateCategoryComponent,
+    ViewCategoryComponent,
+    RemoveCategoryComponent,
   ],
   imports: [CommonModule, AppMaterialModule],
 })

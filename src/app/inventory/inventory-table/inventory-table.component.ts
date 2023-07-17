@@ -9,6 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ProductModel } from 'src/app/model/ProductModel';
 import { InventoryService } from 'src/app/service/inventory/inventory.service';
 import { MatDialog } from '@angular/material/dialog';
+import { CategoryModel } from 'src/app/model/CategoryModel';
 
 @Component({
   selector: 'app-inventory-table',
@@ -60,13 +61,16 @@ export class InventoryTableComponent implements AfterViewInit {
 
   showUpdateProductForm(): void {
     this.dialog.open(this.updateProductForm, {
-      disableClose: true,
+      disableClose: false,
     });
   }
 
-  showDetailsProductForm(): void {
-    this.dialog.open(this.detailsProductForm, {
-      disableClose: false,
+  showDetailsProductForm(category: CategoryModel): void {
+    const dialogRef = this.dialog.open(this.detailsProductForm, {
+      data: category,
+    });
+    dialogRef.afterClosed().subscribe((result: CategoryModel) => {
+      console.log('Category details:', result);
     });
   }
 }

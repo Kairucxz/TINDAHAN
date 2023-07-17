@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="titleContainer">
+    <div class="titleText">Delete Customer</div>
+  </div>
+  <div class="border">
+    <div class="deleteContainer">
+      <p>
+        <span>Are you sure you want to remove </span>
+        <span>{{ data.categoryName }} {{ data.categoryDesc }}</span>
+        <span> from the list?</span>
+      </p>
+    </div>
+
+    <div class="buttonContainer">
+      <button mat-raised-button color="warn" (click)="deleteCategory()">
+        Yes
+      </button>
+      <button mat-raised-button (click)="cancelDeletion()">No</button>
+    </div>
+  </div>
+</div>
