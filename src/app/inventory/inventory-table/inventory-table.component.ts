@@ -10,6 +10,7 @@ import { ProductModel } from 'src/app/model/ProductModel';
 import { InventoryService } from 'src/app/service/inventory/inventory.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CategoryModel } from 'src/app/model/CategoryModel';
+import * as alertify from 'alertifyjs';
 
 @Component({
   selector: 'app-inventory-table',
@@ -42,9 +43,10 @@ export class InventoryTableComponent implements AfterViewInit {
   retrieveProducts(): void {
     this.inventoryService.getAllProduct().subscribe({
       next: (data: ProductModel[]) => {
-        this.products = data;
-        this.dataSource.data = this.products;
-        console.log(data);
+        this.dataSource.data = data
+        if (this.dataSource.data.filter((x) => x.quantity <= 5).length > 0) {
+          alertify.alert('Some of your products are running low. Please check your inventory.').set({'pinnable': true, 'modal':false}).setHeader('<em style="color:red"> Warning! </em> ');
+        }
       },
       error: (e: any) => console.error(e),
     });

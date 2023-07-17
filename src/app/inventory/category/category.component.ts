@@ -31,6 +31,7 @@ export class CategoryComponent implements OnInit {
     if (this.addCategoryForm.valid) {
       this.categoryService.save(this.addCategoryForm.value).subscribe({
         next: (data: any) => {
+          alertify.set('notifier', 'position', 'top-right');
           alertify.success('Category Added Successfully');
           window.location.reload();
         },

@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationService} from "../../service/authentication/authentication.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import * as alertify from "alertifyjs";
 
 // import * as http from "http";
 
@@ -11,9 +12,9 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  form: FormGroup;
-  private formSubmitAttempt: boolean;
+export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
+  private formSubmitAttempt!: boolean;
   apiURL = 'http://localhost:8080/api/v1/auth/authenticate/';
   headers = new Headers();
 
@@ -22,31 +23,33 @@ export class LoginComponent {
     private authentication: AuthenticationService,
     private http: HttpClient,
   ) {
-    this.form = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-    this.headers.set('Content-Type', 'application/json');
-    this.formSubmitAttempt = false;
+    // this.form = this.fb.group({
+    //   email: ['', Validators.required],
+    //   password: ['', Validators.required],
+    // });
+    // this.headers.set('Content-Type', 'application/json');
+    // this.formSubmitAttempt = false;
   }
 
   ngOnInit() {
-    // this.http.get(this.apiURL).subscribe((response) => {
-    //   console.log('response received is ', response);
-    // });
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
-  isFieldInvalid(field: string) {
-    // return (
-    //   (!this.form.get(field).valid && this.form.get(field).touched) ||
-    //   (this.form.get(field).untouched && this.formSubmitAttempt)
-    // );
+  checkInputError(controlName: string): boolean {
+    const control = this.loginForm.controls[controlName];
+    return control?.invalid && (control.dirty || control.touched);
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      this.authentication.authenticate(this.form.value);
-    }
+    if (this.loginForm.valid) {
+      this.authentication.authenticate(this.loginForm.value);
       this.formSubmitAttempt = true;
+    } else {
+      alertify.set('notifier', 'position', 'top-right');
+      alertify.error('Please fill in the form correctly');
+    }
   }
 }

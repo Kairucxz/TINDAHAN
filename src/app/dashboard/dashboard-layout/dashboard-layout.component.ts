@@ -1,16 +1,16 @@
-import { Component, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
+import {Component, AfterViewInit, ViewChild, OnDestroy, OnInit} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Chart, registerables } from 'chart.js/auto';
-
-
+import {InventoryService} from "../../service/inventory/inventory.service";
+import * as alertify from 'alertifyjs'
 
 @Component({
   selector: 'app-dashboard-layout',
   templateUrl: './dashboard-layout.component.html',
   styleUrls: ['./dashboard-layout.component.css']
 })
-export class DashboardLayoutComponent implements AfterViewInit, OnDestroy {
+export class DashboardLayoutComponent implements AfterViewInit, OnDestroy, OnInit {
   @ViewChild('dashboardChart') barChartRef: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   private chart: Chart | undefined;
@@ -18,8 +18,10 @@ export class DashboardLayoutComponent implements AfterViewInit, OnDestroy {
   displayedColumns: string[] = ['customerName', 'creditedAmount', 'balance', 'dueDate'];
   dataSource = new MatTableDataSource<customerTable>(ELEMENT_DATA);
 
-  constructor() { }
-
+  constructor(
+    private inventoryService: InventoryService,
+  ) { }
+ngOnInit() {}
   ngAfterViewInit() {
     Chart.register(...registerables);
     this.createChart();

@@ -57,6 +57,7 @@ export class AddEmployeeComponent implements OnInit {
       console.log(user);
       this.employeeService.register(user).subscribe({
         next: (data: any) => {
+          alertify.set('notifier', 'position', 'top-right');
           alertify.success('User Account Successfully Created');
           window.location.reload();
         },

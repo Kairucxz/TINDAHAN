@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {InventoryService} from "../../service/inventory/inventory.service";
 import {CategoryService} from "../../service/category/category.service";
-import * as alertify from 'alertifyjs'
+import * as alertify from 'alertifyjs';
 import {ProductModel} from "../../model/ProductModel";
 
 @Component({
@@ -59,6 +59,7 @@ export class AddProductComponent implements OnInit {
     if (this.productForm.valid) {
       this.inventoryService.createProduct(this.productForm.value).subscribe({
         next: (data: any) => {
+          alertify.set('notifier', 'position', 'top-right');
           alertify.success('Product Added Successfully');
           window.location.reload();
         },

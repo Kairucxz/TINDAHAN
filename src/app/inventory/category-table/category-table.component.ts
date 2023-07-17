@@ -42,9 +42,7 @@ export class CategoryTableComponent implements AfterViewInit {
   retrieveCategory(): void {
     this.categoryService.getAllCategory().subscribe({
       next: (data: CategoryModel[]) => {
-        this.products = data;
-        this.dataSource.data = this.products;
-        console.log(data);
+        this.dataSource.data = data;
       },
       error: (e: any) => console.error(e),
     });

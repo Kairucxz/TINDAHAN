@@ -64,7 +64,7 @@ export class AddCustomerComponent implements OnInit {
 
       this.customerService.createCustomer(this.newCustomer).subscribe({
         next: (data: any) => {
-          this.data = data;
+          alertify.set('notifier', 'position', 'top-right');
           alertify.success('Customer Successfully added');
           window.location.reload();
         },

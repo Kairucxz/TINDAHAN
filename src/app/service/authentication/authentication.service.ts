@@ -24,13 +24,13 @@ export class AuthenticationService {
   authenticate(user: AuthenticationModel) {
     if (user.email !== '' && user.password !== '') {
       this.httpClient.post<any>(this.apiURL, user).subscribe((response) => {
-        console.log('response received is ', response);
         user.access_token = response['access_token'];
         user.refresh_token = response['refresh_token'];
         user.userId = response['user_id'];
         user.role = response['role'];
         this.authenticationStateService.setCurrentUser(user);
         window.location.replace("/dashboard");
+        alertify.set('notifier', 'position', 'top-right');
         alertify.success('Welcome ' + user.role);
       });
     }
