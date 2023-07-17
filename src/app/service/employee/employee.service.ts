@@ -27,4 +27,17 @@ export class EmployeeService {
   register(user: UserModel): Observable<UserModel> {
     return this.httpClient.post<UserModel>(this.registerURL + 'register', user, { headers: {'Authorization': 'Bearer '+ this.authState.getCurrentUser().access_token}});
   }
+
+  updateEmployee(employeeId: any, employee: EmployeeModel): Observable<EmployeeModel> {
+    return this.httpClient.put<EmployeeModel>(
+      this.apiURL + 'update' + '/' + employeeId,
+      employee,
+      {
+        headers: {
+          Authorization:
+            'Bearer ' + this.authState.getCurrentUser().access_token,
+        },
+      }
+    );
+  }
 }
