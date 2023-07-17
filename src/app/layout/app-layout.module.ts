@@ -12,6 +12,7 @@ import { CustomerModule } from '../user-management/customer/customer.module';
 import { EmployeeModule } from '../user-management/employee/employee.module';
 import { InventoryModule } from '../inventory/inventory.module';
 import { ProfileModule } from '../profile/profile.module';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -31,7 +32,8 @@ import { ProfileModule } from '../profile/profile.module';
     EmployeeModule,
     DashboardModule,
     ProfileModule,
-    InventoryModule
+    InventoryModule,
+    MatNativeDateModule
   ]
 })
 export class AppLayoutModule { }
