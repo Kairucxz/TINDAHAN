@@ -80,11 +80,19 @@
       >
         {{ element.action }}
 
-        <button class="material-symbols-outlined">settings</button>
-        <button class="material-symbols-outlined table-button">
+        <button
+          class="material-symbols-outlined"
+          (click)="showUpdateProductForm()"
+        >
+          settings
+        </button>
+        <button
+          class="material-symbols-outlined table-button"
+          (click)="showDetailsProductForm()"
+        >
           visibility
         </button>
-        <button class="material-symbols-outlined table-button">lock</button>
+        <button class="material-symbols-outlined table-button">tune</button>
       </td>
     </ng-container>
 
@@ -99,3 +107,9 @@
   >
   </mat-paginator>
 </div>
+<ng-template #updateProductForm>
+  <app-update-product></app-update-product>
+</ng-template>
+<ng-template #detailsProductForm>
+  <app-product-details></app-product-details>
+</ng-template>

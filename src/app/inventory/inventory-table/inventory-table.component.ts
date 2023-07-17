@@ -29,7 +29,10 @@ export class InventoryTableComponent implements AfterViewInit {
   currentProduct: ProductModel = {};
   currentIndex = -1;
 
-  constructor(private inventoryService: InventoryService) {}
+  constructor(
+    private inventoryService: InventoryService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.retrieveProducts();
@@ -47,11 +50,23 @@ export class InventoryTableComponent implements AfterViewInit {
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild('updateProductForm') updateProductForm!: TemplateRef<any>;
+  @ViewChild('detailsProductForm') detailsProductForm!: TemplateRef<any>;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.retrieveProducts();
   }
-}
 
-const ELEMENT_DATA: ProductModel[] = [];
+  showUpdateProductForm(): void {
+    this.dialog.open(this.updateProductForm, {
+      disableClose: true,
+    });
+  }
+
+  showDetailsProductForm(): void {
+    this.dialog.open(this.detailsProductForm, {
+      disableClose: false,
+    });
+  }
+}

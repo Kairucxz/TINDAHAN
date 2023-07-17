@@ -5,6 +5,8 @@ import { InventoryTableComponent } from './inventory-table/inventory-table.compo
 import { AddProductComponent } from './add-product/add-product.component';
 import { AppMaterialModule } from '../app-material.module';
 import { CategoryComponent } from './category/category.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +14,8 @@ import { CategoryComponent } from './category/category.component';
     InventoryTableComponent,
     AddProductComponent,
     CategoryComponent,
+    UpdateProductComponent,
+    ProductDetailsComponent,
   ],
   imports: [CommonModule, AppMaterialModule],
 })
