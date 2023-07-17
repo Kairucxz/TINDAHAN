@@ -60,6 +60,10 @@ table {
   height: 90% !important;
 }
 
+mat-card-title {
+  margin-bottom: 25px;
+}
+
 mat-card-content {
   height: 90% !important;
   display: flex;
@@ -107,6 +111,6 @@ mat-card-footer {
   padding: 16px 16px 0;
   display: inherit;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 75px;
 }
