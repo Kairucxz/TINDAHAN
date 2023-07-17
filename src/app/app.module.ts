@@ -12,6 +12,7 @@ import { AppMaterialModule } from './app-material.module';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SalesModule } from './sales/sales.module';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, NotFoundComponent],
@@ -25,6 +26,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppMaterialModule,
     FormsModule,
     AuthModule,
+    SalesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

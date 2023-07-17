@@ -1,0 +1,14 @@
+<div class="mainContainer">
+  <div class="titleContainer">
+    <div class="titleText">Sales Report</div>
+    <div class="buttonContainer">
+      <button mat-raised-button color="primary" (click)="viewSalesForm()">
+        Add Sales
+      </button>
+    </div>
+  </div>
+  <div class="tableContainer"></div>
+</div>
+<ng-template #viewSalesModal>
+  <app-add-sales></app-add-sales>
+</ng-template>
