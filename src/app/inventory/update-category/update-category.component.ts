@@ -3,11 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CategoryModel } from 'src/app/model/CategoryModel';
 import { CategoryService } from 'src/app/service/category/category.service';
+import * as alertify from 'alertifyjs';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-update-category',
   templateUrl: './update-category.component.html',
   styleUrls: ['./update-category.component.css'],
+  providers: [DatePipe],
 })
 export class UpdateCategoryComponent implements OnInit {
   categoryForm!: FormGroup;
@@ -17,7 +20,8 @@ export class UpdateCategoryComponent implements OnInit {
     private categoryService: CategoryService,
     @Inject(MAT_DIALOG_DATA) public data: CategoryModel,
     private dialogRef: MatDialogRef<UpdateCategoryComponent>,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -40,7 +44,9 @@ export class UpdateCategoryComponent implements OnInit {
     if (this.categoryForm.valid && this.isFormModified()) {
       this.categoryService.updateCategory(id, this.category).subscribe(
         (response: CategoryModel) => {
-          console.log('Category updated:', response);
+          alertify.set('notifier', 'position', 'top-right');
+          alertify.success('Category updated successfully');
+          window.location.reload();
           this.dialogRef.close();
         },
         (error: any) => {

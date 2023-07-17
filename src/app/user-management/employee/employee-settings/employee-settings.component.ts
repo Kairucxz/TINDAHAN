@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmployeeModel } from 'src/app/model/EmployeeModel';
 import { EmployeeService } from 'src/app/service/employee/employee.service';
+import * as alertify from 'alertifyjs';
 
 @Component({
   selector: 'app-settings',
@@ -45,7 +46,9 @@ export class EmployeeSettingsComponent implements OnInit {
     if (this.employeeForm.valid && this.isFormModified()) {
       this.employeeService.updateEmployee(employeeId, this.employee).subscribe(
         (response: EmployeeModel) => {
-          console.log('Employee updated:', response);
+          alertify.set('notifier', 'position', 'top-right');
+          alertify.success('Employee updated successfully');
+          window.location.reload();
           this.dialogRef.close();
         },
         (error: any) => {
