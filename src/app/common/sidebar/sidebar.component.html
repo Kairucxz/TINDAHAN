@@ -9,6 +9,7 @@
     <span matListItemTitle>Dashboard</span>
   </mat-list-item>
   <mat-list-item
+    *ngIf="isAdminAndInventoryClerk()"
     [routerLink]="['/inventory']"
     (click)="setSelected('Inventory')"
     [routerLinkActive]="['active']"
@@ -17,6 +18,7 @@
     <span matListItemTitle>Inventory</span>
   </mat-list-item>
   <mat-list-item
+    *ngIf="isCashierAndAdmin()"
     [routerLink]="['/pos']"
     (click)="setSelected('Point of Sale')"
     [routerLinkActive]="['active']"
@@ -24,7 +26,7 @@
     <mat-icon matListItemIcon>point_of_sale</mat-icon>
     <span matListItemTitle>Point of Sale</span>
   </mat-list-item>
-  <mat-expansion-panel [class.mat-elevation-z0]="true" mat-list-item>
+  <mat-expansion-panel *ngIf="isAdministrator()" [class.mat-elevation-z0]="true" mat-list-item>
     <mat-expansion-panel-header matListItemTitle>
       <mat-icon style="margin: 0 15px 0 0">people</mat-icon>
       <span>User Management</span>
