@@ -43,9 +43,14 @@ export class InventoryTableComponent implements AfterViewInit {
   retrieveProducts(): void {
     this.inventoryService.getAllProduct().subscribe({
       next: (data: ProductModel[]) => {
-        this.dataSource.data = data
+        this.dataSource.data = data;
         if (this.dataSource.data.filter((x) => x.quantity <= 5).length > 0) {
-          alertify.alert('Some of your products are running low. Please check your inventory.').set({'pinnable': true, 'modal':false}).setHeader('<em style="color:red"> Warning! </em> ');
+          alertify
+            .alert(
+              'Some of your products are running low. Please check your inventory.'
+            )
+            .set({ pinnable: true, modal: false })
+            .setHeader('<em style="color:red"> Warning! </em> ');
         }
       },
       error: (e: any) => console.error(e),
@@ -55,20 +60,33 @@ export class InventoryTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild('updateProductForm') updateProductForm!: TemplateRef<any>;
   @ViewChild('detailsProductForm') detailsProductForm!: TemplateRef<any>;
+  @ViewChild('deleteProductForm') deleteProductForm!: TemplateRef<any>;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.retrieveProducts();
   }
 
-  showUpdateProductForm(): void {
-    this.dialog.open(this.updateProductForm, {
-      disableClose: false,
+  showUpdateProductForm(product: ProductModel): void {
+    const dialogRef = this.dialog.open(this.updateProductForm, {
+      data: product,
+    });
+    dialogRef.afterClosed().subscribe((result: ProductModel) => {
+      console.log('Updated category:', result);
     });
   }
 
   showDetailsProductForm(category: CategoryModel): void {
     const dialogRef = this.dialog.open(this.detailsProductForm, {
+      data: category,
+    });
+    dialogRef.afterClosed().subscribe((result: CategoryModel) => {
+      console.log('Category details:', result);
+    });
+  }
+
+  showDeleteProductForm(category: CategoryModel): void {
+    const dialogRef = this.dialog.open(this.deleteProductForm, {
       data: category,
     });
     dialogRef.afterClosed().subscribe((result: CategoryModel) => {

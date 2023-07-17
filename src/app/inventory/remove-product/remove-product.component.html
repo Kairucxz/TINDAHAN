@@ -6,13 +6,13 @@
     <div class="deleteContainer">
       <p>
         <span>Are you sure you want to remove </span>
-        <span>{{ data.categoryName }}</span>
+        <span>{{ data.prodName }}</span>
         <span> from the list?</span>
       </p>
     </div>
 
     <div class="buttonContainer">
-      <button mat-raised-button color="warn" (click)="deleteCategory()">
+      <button mat-raised-button color="warn" (click)="deleteProduct()">
         Yes
       </button>
       <button mat-raised-button (click)="cancelDeletion()">No</button>

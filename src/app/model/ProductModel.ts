@@ -1,11 +1,11 @@
-import {UserModel} from "./UserModel";
+import { UserModel } from './UserModel';
 
-export class ProductModel{
-    id?: any;
-    prodName?: string;
-    prodDesc?: string;
-    unitPrice?: any;
-    quantity?: any;
-    category?: any;
-    action?: any;
+export class ProductModel {
+  prodId?: any;
+  prodName?: string;
+  prodDesc?: string;
+  unitPrice?: any;
+  quantity?: any;
+  category?: any;
+  action?: any;
 }

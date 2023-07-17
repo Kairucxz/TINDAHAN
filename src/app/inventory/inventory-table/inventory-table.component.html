@@ -9,7 +9,8 @@
         mat-cell
         *matCellDef="let element"
         class="table-cell-font"
-        [style.color]="element.quantity > 10 ? null : 'red'">
+        [style.color]="element.quantity > 10 ? null : 'red'"
+      >
         {{ element.prodName }}
       </td>
     </ng-container>
@@ -46,7 +47,8 @@
         mat-cell
         *matCellDef="let element"
         class="table-cell-font table-cell-center"
-        [style.color]="element.quantity > 10 ? null : 'red'">
+        [style.color]="element.quantity > 10 ? null : 'red'"
+      >
         {{ element.unitPrice }}
       </td>
     </ng-container>
@@ -64,7 +66,8 @@
         mat-cell
         *matCellDef="let element"
         class="table-cell-font table-cell-center"
-        [style.color]="element.quantity > 10 ? null : 'red'">
+        [style.color]="element.quantity > 10 ? null : 'red'"
+      >
         {{ element.prodDesc }}
       </td>
     </ng-container>
@@ -82,12 +85,13 @@
         mat-cell
         *matCellDef="let element"
         class="table-cell-font table-cell-center"
-        [style.color]="element.quantity > 10 ? null : 'red'">
+        [style.color]="element.quantity > 10 ? null : 'red'"
+      >
         {{ element.action }}
 
         <button
           class="material-symbols-outlined"
-          (click)="showUpdateProductForm()"
+          (click)="showUpdateProductForm(element)"
         >
           edit_note
         </button>
@@ -97,7 +101,12 @@
         >
           visibility
         </button>
-        <button class="material-symbols-outlined table-button">tune</button>
+        <button
+          class="material-symbols-outlined table-button"
+          (click)="showDeleteProductForm(element)"
+        >
+          delete
+        </button>
       </td>
     </ng-container>
 
@@ -117,4 +126,7 @@
 </ng-template>
 <ng-template #detailsProductForm>
   <app-product-details></app-product-details>
+</ng-template>
+<ng-template #deleteProductForm>
+  <app-remove-product></app-remove-product>
 </ng-template>
