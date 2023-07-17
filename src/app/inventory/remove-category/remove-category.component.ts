@@ -19,8 +19,7 @@ export class RemoveCategoryComponent {
     this.categoryService.deleteCategory(this.data.id).subscribe(
       () => {
         console.log('Category deleted:', this.data.categoryName);
-
-        this.dialogRef.close();
+        window.location.reload();
       },
       (error: any) => {
         console.error('Error deleting category:', error);
