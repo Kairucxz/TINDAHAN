@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {EmployeeService} from 'src/app/service/employee/employee.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import * as alertifyjs from "alertifyjs";
+import * as alertify from 'alertifyjs'
 import {EmployeeModel} from "../../../model/EmployeeModel";
 import {UserModel} from "../../../model/UserModel";
 
@@ -57,8 +57,8 @@ export class AddEmployeeComponent implements OnInit {
       console.log(user);
       this.employeeService.register(user).subscribe({
         next: (data: any) => {
-          alertifyjs.success('User Account Successfully Created');
-          this.data = data;
+          alertify.success('User Account Successfully Created');
+          window.location.reload();
         },
         error: (e: any) => console.error(e)
       });
