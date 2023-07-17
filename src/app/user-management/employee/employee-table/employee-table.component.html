@@ -17,7 +17,7 @@
         *matHeaderCellDef
         class="table-header table-cell-center"
       >
-       Full Name
+        Full Name
       </th>
       <td
         mat-cell
@@ -42,7 +42,7 @@
         *matCellDef="let element"
         class="table-cell-font table-cell-center"
       >
-        {{element.user.email}}
+        {{ element.user.email }}
       </td>
     </ng-container>
 
@@ -61,7 +61,6 @@
         class="table-cell-font table-cell-center"
       >
         {{ element.user.role }}
-
       </td>
     </ng-container>
 
@@ -96,7 +95,7 @@
   <mat-paginator
     [pageSizeOptions]="[5, 10, 20]"
     showFirstLastButtons
-    aria-label="Select page of periodic elements"
+    aria-label="Select page of employee"
   >
   </mat-paginator>
 </div>

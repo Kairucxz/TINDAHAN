@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CustomerModel } from 'src/app/model/CustomerModel';
 import { CustomerService } from 'src/app/service/customer/customer.service';
+import * as alertifyjs from 'alertifyjs';
 
 @Component({
   selector: 'app-add-customer',
@@ -61,15 +62,16 @@ export class AddCustomerComponent implements OnInit {
         creditedAmount: this.customerForm.value.creditedAmount,
       };
 
-      this.customerService.createCustomer(this.newCustomer).subscribe(
-        (response: CustomerModel) => {
-          console.log('New customer created:', response);
-          this.dialogRef.close();
+      this.customerService.createCustomer(this.newCustomer).subscribe({
+        next: (data: any) => {
+          this.data = data;
+          alertifyjs.success('Customer Successfully added');
+          window.location.reload();
         },
-        (error: any) => {
-          console.error('Error creating customer:', error);
-        }
-      );
+
+        error: (e: any) => console.error('Error creating customer:', e),
+      });
     }
+    this.dialogRef.close();
   }
 }
