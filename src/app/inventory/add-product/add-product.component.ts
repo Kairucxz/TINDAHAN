@@ -21,9 +21,7 @@ export class AddProductComponent implements OnInit {
     private categoryService: CategoryService,
     private inventoryService: InventoryService,
     private formBuilder: FormBuilder
-  ) {
-  }
-
+  ) {}
 
   ngOnInit(): void {
     this.loadCategory();
@@ -49,7 +47,6 @@ export class AddProductComponent implements OnInit {
     this.categoryService.getAllCategory().subscribe({
       next: (data: any) => {
         this.category = data;
-        console.log(this.category);
       },
       error: (e: any) => console.error(e)
     });
@@ -62,7 +59,6 @@ export class AddProductComponent implements OnInit {
     if (this.productForm.valid) {
       this.inventoryService.createProduct(this.productForm.value).subscribe({
         next: (data: any) => {
-          this.data = data;
           alertify.success('Product Added Successfully');
           window.location.reload();
         },

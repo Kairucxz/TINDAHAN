@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryService } from '../../service/category/category.service';
-import * as alertifyjs from 'alertifyjs';
+import * as alertify from 'alertifyjs';
 
 @Component({
   selector: 'app-category',
@@ -31,7 +31,7 @@ export class CategoryComponent implements OnInit {
     if (this.addCategoryForm.valid) {
       this.categoryService.save(this.addCategoryForm.value).subscribe({
         next: (data: any) => {
-          alertifyjs.success('Category Added Successfully');
+          alertify.success('Category Added Successfully');
           window.location.reload();
         },
         error: (e: any) => console.error(e),
