@@ -2,12 +2,19 @@ mat-grid-list {
   margin: 20px;
   border-radius: 10px;
   padding: 20px;
-  height: 100%;
+  min-height: 0;
+  /* height: 100%; */
+}
+
+mat-grid-tile {
+  margin: 0 !important;
+  padding-top: 200px !important;
+  overflow: visible;
 }
 
 .widget-card {
   padding: 10px;
-  height: 97.5%;
+  /* height: 97.5%; */
   width: 90%;
   border-radius: 15px;
   justify-content: space-between;
@@ -67,7 +74,7 @@ mat-card-content {
 }
 
 .tile-widget {
-  height: 200px !important;
+  /* height: 200px !important; */
   width: 25% !important;
 }
 

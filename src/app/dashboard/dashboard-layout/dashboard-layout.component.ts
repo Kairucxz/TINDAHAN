@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Chart, registerables } from 'chart.js/auto';
 import {InventoryService} from "../../service/inventory/inventory.service";
 import * as alertify from 'alertifyjs'
+import { CustomerModel } from 'src/app/model/CustomerModel';
+import { CustomerService } from 'src/app/service/customer/customer.service';
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -15,17 +17,21 @@ export class DashboardLayoutComponent implements AfterViewInit, OnDestroy, OnIni
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   private chart: Chart | undefined;
   private resizeObserver: ResizeObserver | undefined;
-  displayedColumns: string[] = ['customerName', 'creditedAmount', 'balance', 'dueDate'];
-  dataSource = new MatTableDataSource<customerTable>(ELEMENT_DATA);
+  displayedColumns: string[] = ['name', 'creditedAmount', 'status', 'dueDate'];
+  dataSource = new MatTableDataSource<CustomerModel>();
 
   constructor(
     private inventoryService: InventoryService,
+    private customerService: CustomerService
   ) { }
-ngOnInit() {}
+
+  ngOnInit() {}
+
   ngAfterViewInit() {
     Chart.register(...registerables);
     this.createChart();
     this.dataSource.paginator = this.paginator;
+    this.retrieveCustomer();
 
     // Initialize ResizeObserver to detect changes in view size
     this.resizeObserver = new ResizeObserver(() => {
@@ -70,38 +76,36 @@ ngOnInit() {}
       this.chart.resize();
     }
   }
-}
 
-export interface customerTable {
-  customerName: string;
-  creditedAmount: number;
-  balance: number;
-  dueDate: Date;
-}
+  retrieveCustomer(): void {
+    this.customerService.getAllCustomer().subscribe(
+      (data: CustomerModel[]) => {
+        this.dataSource.data = data.map((customer: CustomerModel) => {
+          customer.dueDate = this.calculateDueDate(customer.dueDate);
+          return customer;
+        });
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    );
+  }
 
-const ELEMENT_DATA: customerTable[] = [
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-  {customerName: 'Mark Lester Bugarin', creditedAmount: 5000, balance: 4000, dueDate: new Date('YY-MM-DD')},
-]
+  convertStatus(status: boolean): string {
+    return status ? 'Paid' : 'Unpaid';
+  }
+  calculateDueDate(dateString: string | undefined): string {
+    if (!dateString) {
+      return '';
+    }
+
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const lastDayOfMonth = new Date(year, date.getMonth() + 1, 0)
+      .getDate()
+      .toString()
+      .padStart(2, '0');
+    return `${year}-${month}-${lastDayOfMonth}`;
+  }
+}
