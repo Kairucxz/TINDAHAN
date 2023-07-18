@@ -14,4 +14,5 @@ export class UserModel{
   zipCode?: string;
   employee?: EmployeeModel;
   tokens?: any;
+  permissions?: any[];
 }

@@ -10,6 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CategoryModel } from 'src/app/model/CategoryModel';
 import { CategoryService } from 'src/app/service/category/category.service';
 import { RemoveCategoryComponent } from '../remove-category/remove-category.component';
+import {AuthenticationStateService} from "../../service/authentication/authentication-state.service";
 
 @Component({
   selector: 'app-category-table',
@@ -31,14 +32,17 @@ export class CategoryTableComponent implements AfterViewInit {
   currentIndex = -1;
 
   constructor(
+    private dialog: MatDialog,
     private categoryService: CategoryService,
-    private dialog: MatDialog
+    private authStateService: AuthenticationStateService
   ) {}
 
   ngOnInit(): void {
     this.retrieveCategory();
   }
-
+isAdministrator(): boolean{
+    return this.authStateService.getCurrentUser()?.role === 'ADMIN';
+}
   retrieveCategory(): void {
     this.categoryService.getAllCategory().subscribe({
       next: (data: CategoryModel[]) => {

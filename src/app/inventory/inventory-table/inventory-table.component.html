@@ -103,6 +103,7 @@
         </button>
         <button
           class="material-symbols-outlined table-button"
+          *ngIf="isAdministrator()"
           (click)="showDeleteProductForm(element)"
         >
           delete

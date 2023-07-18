@@ -51,7 +51,6 @@ export class AddProductComponent implements OnInit {
       error: (e: any) => console.error(e)
     });
   }
-
   addProduct(): void {
     this.productForm.value['category'] = {
       id: this.productForm.value['category']

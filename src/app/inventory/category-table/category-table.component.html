@@ -81,6 +81,7 @@
           visibility
         </button>
         <button
+          *ngIf="isAdministrator()"
           class="material-symbols-outlined table-button"
           (click)="removeCategoryModal(element)"
         >

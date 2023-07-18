@@ -11,6 +11,7 @@ import { InventoryService } from 'src/app/service/inventory/inventory.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CategoryModel } from 'src/app/model/CategoryModel';
 import * as alertify from 'alertifyjs';
+import {AuthenticationStateService} from "../../service/authentication/authentication-state.service";
 
 @Component({
   selector: 'app-inventory-table',
@@ -32,8 +33,9 @@ export class InventoryTableComponent implements AfterViewInit {
   currentIndex = -1;
 
   constructor(
+    private dialog: MatDialog,
     private inventoryService: InventoryService,
-    private dialog: MatDialog
+    private authStateService: AuthenticationStateService
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +57,10 @@ export class InventoryTableComponent implements AfterViewInit {
       },
       error: (e: any) => console.error(e),
     });
+  }
+
+  isAdministrator(): boolean {
+    return this.authStateService.getCurrentUser()?.role === 'ADMIN';
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
