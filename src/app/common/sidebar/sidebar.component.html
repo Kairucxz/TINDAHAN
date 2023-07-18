@@ -66,6 +66,7 @@
   </mat-list-item>
 
   <mat-list-item
+    *ngIf="isCashierAndAdmin()"
     [routerLink]="['/sales']"
     (click)="setSelected('Sales')"
     [routerLinkActive]="['active']"

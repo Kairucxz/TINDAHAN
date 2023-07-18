@@ -1,11 +1,12 @@
 import {Component, AfterViewInit, ViewChild, OnDestroy, OnInit} from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-import { Chart, registerables } from 'chart.js/auto';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import {Chart, registerables} from 'chart.js/auto';
 import {InventoryService} from "../../service/inventory/inventory.service";
 import * as alertify from 'alertifyjs'
-import { CustomerModel } from 'src/app/model/CustomerModel';
-import { CustomerService } from 'src/app/service/customer/customer.service';
+import {CustomerModel} from 'src/app/model/CustomerModel';
+import {CustomerService} from 'src/app/service/customer/customer.service';
+import {ProductModel} from "../../model/ProductModel";
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -19,13 +20,31 @@ export class DashboardLayoutComponent implements AfterViewInit, OnDestroy, OnIni
   private resizeObserver: ResizeObserver | undefined;
   displayedColumns: string[] = ['name', 'creditedAmount', 'status', 'dueDate'];
   dataSource = new MatTableDataSource<CustomerModel>();
+  totalCredit: number = 0;
+  totalProduct: number = 0;
 
   constructor(
     private inventoryService: InventoryService,
     private customerService: CustomerService
-  ) { }
+  ) {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.totalCredits();
+    this.totalProducts();
+  }
+
+  totalCredits() {
+    return this.customerService.getAllCustomer().subscribe(
+      (data: CustomerModel[]) => {
+        let total = 0;
+        data.forEach((customer: CustomerModel) => {
+          total += customer.creditedAmount?.valueOf() || 0;
+        });
+        this.totalCredit = total;
+      }
+    )
+  }
 
   ngAfterViewInit() {
     Chart.register(...registerables);
@@ -38,6 +57,17 @@ export class DashboardLayoutComponent implements AfterViewInit, OnDestroy, OnIni
       this.updateChart();
     });
     this.resizeObserver.observe(this.barChartRef.nativeElement);
+  }
+
+  totalProducts() {
+    return this.inventoryService.getAllProduct().subscribe({
+      next: (data: ProductModel[]) => {
+        this.totalProduct = data.length;
+      },
+      error: (err: any) => {
+        alertify.error('Error while fetching data');
+      }
+    });
   }
 
   ngOnDestroy() {
@@ -59,8 +89,8 @@ export class DashboardLayoutComponent implements AfterViewInit, OnDestroy, OnIni
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June'],
         datasets: [
-          { label: 'Orders', data: [65, 59, 80, 81, 56, 55], backgroundColor: '#42A5F5' },
-          { label: 'Credit', data: [28, 48, 40, 19, 86, 27], backgroundColor: '#FFA726' },
+          {label: 'Orders', data: [65, 59, 80, 81, 56, 55], backgroundColor: '#42A5F5'},
+          {label: 'Credit', data: [28, 48, 40, 19, 86, 27], backgroundColor: '#FFA726'},
         ],
       },
       options: {
@@ -94,6 +124,7 @@ export class DashboardLayoutComponent implements AfterViewInit, OnDestroy, OnIni
   convertStatus(status: boolean): string {
     return status ? 'Paid' : 'Unpaid';
   }
+
   calculateDueDate(dateString: string | undefined): string {
     if (!dateString) {
       return '';
