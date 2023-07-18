@@ -28,6 +28,8 @@ export class AuthenticationService {
         user.refresh_token = response['refresh_token'];
         user.userId = response['user_id'];
         user.role = response['role'];
+        user.permissions = response['permissions'];
+
         this.authenticationStateService.setCurrentUser(user);
         window.location.replace("/dashboard");
         alertify.set('notifier', 'position', 'top-right');

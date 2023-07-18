@@ -11,11 +11,16 @@ import { UserService } from 'src/app/service/user/user.service';
 })
 export class ProfileLayoutComponent {
   public currentUser: UserModel;
-  constructor(private userService: UserService) {
+  permissions: any[] = [];
+  constructor(
+    private userService: UserService,
+    private authStateService: AuthenticationStateService
+  ) {
     this.currentUser = new UserModel();
     userService.getCurrentUser().subscribe(
       (user: UserModel) => {
         this.currentUser = user;
+        // this.permissions = this.authStateService.getCurrentUser().permissions;
       }
     );
   }
